@@ -78,7 +78,7 @@
         <div id="curate-modal" class="modal">
             <div class="modal-content">
                 <span class="close" style="text-align: right">&times;</span>
-                <p>**info on curating portfolio**</p>
+                <p>**curating portfolio stuff will go here**</p>
             </div>
         </div>
 
