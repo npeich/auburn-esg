@@ -85,6 +85,11 @@ public class Stock {
         }
         return myMap;
     }
+
+    public String getName() {
+        return stockTicker;
+    }
+
     public static void main(String[] args) {
         Stock amazon = new Stock("amzn");
         HashMap<String, String> list = new HashMap<String, String>();

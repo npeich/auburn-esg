@@ -8,6 +8,7 @@ font-family: 'Source Sans Pro', sans-serif;
     --navy: #13294B;
     --teal: #117788;
     --green: #88bb00;
+    --darkgreen: #447722;
     --red: #cc2233;
     --orange: #f47736;
     --yellow: #ffc425;
@@ -98,6 +99,10 @@ input[type=submit] {
     color: hotpink;
 }
 
+#portfolio {
+    margin-top: 30px;
+}
+
 #company-info-box {
     position: relative;
     padding: 30px;
@@ -105,12 +110,11 @@ input[type=submit] {
     border-radius: 20px;
     text-align: center;
     margin-top: 30px;
-    min-height: 600px;
+    height: 600px;
 }
 
 #curate-portfolio {
     border-radius: 20px;
-    margin-top: 30px;
     padding: 20px;
     background-color: var(--navy);
 }
@@ -128,13 +132,37 @@ input[type=submit] {
     color: var(--white);
 }
 
-#stock-in-portfolio {
-    border: 3px solid var(--red);
+#stock-in-portfolioA {
+    border: 3px solid var(--darkgreen);
     border-radius: 20px;
-    margin-top: 30px;
+    margin-bottom: 20px;
 }
 
-#stock-in-portfolio:hover {
+#stock-in-portfolioBBB {
+    border: 3px solid var(--green);
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+#stock-in-portfolioBB {
+    border: 3px solid var(--yellow);
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+#stock-in-portfolioB {
+    border: 3px solid var(--orange);
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+#stock-in-portfolioCCC {
+    border: 3px solid var(--red);
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+#stock-in-portfolio:hover, #stock-in-portfolio2:hover, #stock-in-portfolio3:hover {
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
 }
 

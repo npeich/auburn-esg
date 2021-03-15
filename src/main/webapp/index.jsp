@@ -1,9 +1,11 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <style><%@include file="/custom.css"%></style>
+    <%@page import="java.util.ArrayList" %>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Source+Sans+Pro&display=swap" rel="stylesheet">
@@ -52,27 +54,73 @@
     <!---->
     <!--PORTFOLIO PANEL-->
     <!---->
-    <div class="col-lg-8">
+    <div class="col-lg-8" id="portfolio">
         <!---->
         <!--STOCKS IN PORTFOLIO-->
         <!---->
-        <div class="row gx-2" id="stock-in-portfolio">
-            <!--RESULTS FROM SEARCH-->
-            <div class="col-6 company-in-portfolio">
-                <h2>${resultcompany}</h2>
-                <h2>${resultESGCall}</h2>
-            </div>
-            <div class="col-6">
-                <h1 class="info-in-portfolio">${resultletter}</h1>
-            </div>
-        </div>
-        <p>${resultesg}</p>
-        <p>${resultprice}</p>
+        <c:forEach items="${allStocks}" var="s">
+            <c:set var="grade" value="${s.getESGStats().get('total_grade')}"/>
 
-        <br>
+            <c:if test="${grade=='BBB'}">
+            <div class="row gx-2" id="stock-in-portfolioBBB">
+                <div class="col-6 company-in-portfolio">
+                    <h2>${s.getName()}</h2>
+                </div>
+                <div class="col-6">
+                    <h1 class="info-in-portfolio">${s.getESGStats().get("total_grade")}</h1>
+                </div>
+            </div>
+            </c:if>
+
+            <c:if test="${grade=='BB'}">
+                <div class="row gx-2" id="stock-in-portfolioBB">
+                    <div class="col-6 company-in-portfolio">
+                        <h2>${s.getName()}</h2>
+                    </div>
+                    <div class="col-6">
+                        <h1 class="info-in-portfolio">${s.getESGStats().get("total_grade")}</h1>
+                    </div>
+                </div>
+            </c:if>
+
+            <c:if test="${grade=='B'}">
+                <div class="row gx-2" id="stock-in-portfolioB">
+                    <div class="col-6 company-in-portfolio">
+                        <h2>${s.getName()}</h2>
+                    </div>
+                    <div class="col-6">
+                        <h1 class="info-in-portfolio">${s.getESGStats().get("total_grade")}</h1>
+                    </div>
+                </div>
+            </c:if>
+
+            <c:if test="${grade=='CCC'}">
+                <div class="row gx-2" id="stock-in-portfolioCCC">
+                    <div class="col-6 company-in-portfolio">
+                        <h2>${s.getName()}</h2>
+                    </div>
+                    <div class="col-6">
+                        <h1 class="info-in-portfolio">${s.getESGStats().get("total_grade")}</h1>
+                    </div>
+                </div>
+            </c:if>
+
+            <c:if test="${grade=='A'}">
+                <div class="row gx-2" id="stock-in-portfolioA">
+                    <div class="col-6 company-in-portfolio">
+                        <h2>${s.getName()}</h2>
+                    </div>
+                    <div class="col-6">
+                        <h1 class="info-in-portfolio">${s.getESGStats().get("total_grade")}</h1>
+                    </div>
+                </div>
+            </c:if>
+        </c:forEach>
+
+
+
 
         <div id="curate-portfolio">
-
             <h2 id="curate">Request Curated Portfolio</h2>
         </div>
         <div id="curate-modal" class="modal">
@@ -81,11 +129,6 @@
                 <p>**curating portfolio stuff will go here**</p>
             </div>
         </div>
-
-        <!--
-        <button id="btn_div_add">Click to add a div element!</button>
-        <div id="board">
-        </div>-->
 
     </div>
 
@@ -158,7 +201,7 @@
 <script>
     $(document).ready(function() {
         $("#btn_div_add").click(function() {
-            $("#board").append("<div class='box'><h1>oh word?</h1><p>Check it outtttt</p></div>");
+            $("#board").createElement("<div class='box'><h1>${returnportfolio}</h1><p>Check it outtttt</p></div>");
         });
     });
 </script>
@@ -187,7 +230,7 @@
     }
 </script>
 
-<!--pop up for info on ESGs-->
+<!--pop up for curating portfolio-->
 <script>
     // Get the modal
     var modal = document.getElementById("curate-modal");
