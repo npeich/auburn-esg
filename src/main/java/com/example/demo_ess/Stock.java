@@ -81,7 +81,8 @@ public class Stock {
                 keyValue2[keyValue.length] = "";
                 keyValue = keyValue2;
             }
-            myMap.put(keyValue[0].replaceAll("[^a-zA-Z_]", ""), keyValue[1].replaceAll("[^a-zA-Z0-9_.\\s]", ""));
+            keyValue[1] = keyValue[1].replaceAll("u0026", "&");
+            myMap.put(keyValue[0].replaceAll("[^a-zA-Z_]", ""), keyValue[1].replaceAll("[^a-zA-Z0-9_.&\\s]", ""));
         }
         return myMap;
     }
@@ -91,7 +92,7 @@ public class Stock {
     }
 
     public static void main(String[] args) {
-        Stock amazon = new Stock("aapl");
+        Stock amazon = new Stock("wfc");
         HashMap<String, String> list = new HashMap<String, String>();
         list = amazon.getESGStats();
         Set<String> marketPrice = list.keySet();
