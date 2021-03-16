@@ -36,7 +36,7 @@ public class User {
         System.out.println("Environmental: " + ESG.get("environment_score") + " " + ESG.get("environment_grade"));
         System.out.println("Social: " + ESG.get("social_score") + " " + ESG.get("social_grade"));
         System.out.println("Governance: " + ESG.get("governance_score") + " " + ESG.get("governance_grade"));
-        //System.out.println("Price: " + price.get("regularMarketPrice"));
+        System.out.println("Price: " + price.get("regularMarketPrice"));
         System.out.println("Open: " + price.get("regularMarketOpen"));
         System.out.println("Change: " + price.get("Change") + " -> " + price.get("regularMarketChangePercent") + "%");
         return stock;

@@ -1,11 +1,11 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html>
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <style><%@include file="/custom.css"%></style>
-    <%@page import="java.util.ArrayList" %>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Source+Sans+Pro&display=swap" rel="stylesheet">
@@ -41,7 +41,7 @@
     <!---->
     <form action="/" method="post">
         <div class="row no-gutters">
-            <div class="col-10" id="b">
+            <div class="col-10">
                 <a id="add-button" href="#">+ </a><input id="stock-input" type="text" name="stock">
             </div>
             <div class="col-2" id="b">
