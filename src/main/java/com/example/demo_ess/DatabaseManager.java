@@ -8,7 +8,8 @@ public class DatabaseManager {
     private Connection connect() {
         // SQLite connection string
         // C:\Users\tjoli\OneDrive\Documents\GitHub\ESGapplication\Customer.db
-        String url = "jdbc:sqlite:C:\\Users\\tjoli\\OneDrive\\Documents\\GitHub\\ESGapplication\\Customer.db";
+
+        String url = "jdbc:sqlite:Customer.db";
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url);

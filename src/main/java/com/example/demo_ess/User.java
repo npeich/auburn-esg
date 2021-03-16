@@ -43,7 +43,6 @@ public class User {
     }
 
     public void removeStock(String stockTicker) {
-
     }
     public ArrayList<Stock> sortEnvironmental() {
         return null;
