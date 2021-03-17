@@ -68,8 +68,8 @@
 
 
                 <c:if test="${grade=='BBB'}">
-
-                <div class="row gx-2 stock-in-portfolioBBB" id="stock${stocknum}">
+                <a onclick="myFunction()" href="#" id="stock${stocknum}">
+                <div class="row gx-2 stock-in-portfolioBBB">
                     <div class="col-9 company-in-portfolio">
                         <h2>${s.getESGStats().get('company_name')}</h2>
                     </div>
@@ -77,13 +77,15 @@
                         <h1 class="info-in-portfolio">${s.getESGStats().get("total_grade")}</h1>
                     </div>
                 </div>
+                </a>
                     <c:out value="${stocknum}"/>
                     <c:set var="stocknum" value="${stocknum + 1}" scope="page"/>
 
                 </c:if>
 
                 <c:if test="${grade=='BB'}">
-                    <div class="row gx-2 stock-in-portfolioBB" id="stock${stocknum}">
+                    <a onclick="myFunction()" href="#" id="stock${stocknum}">
+                    <div class="row gx-2 stock-in-portfolioBB">
                         <div class="col-9 company-in-portfolio">
                             <h2>${s.getESGStats().get('company_name')}</h2>
                         </div>
@@ -91,41 +93,16 @@
                             <h1 class="info-in-portfolio">${s.getESGStats().get("total_grade")}</h1>
                         </div>
                     </div>
+                    </a>
                     <c:out value="${stocknum}"/>
                     <c:set var="stocknum" value="${stocknum + 1}" scope="page"/>
 
                 </c:if>
 
                 <c:if test="${grade=='B'}">
-                    <div class="row gx-2 stock-in-portfolioB" id="stock${stocknum}">
-                        <div class="col-9 company-in-portfolio">
-                            <h2>${s.getESGStats().get('company_name')}</h2>
-                        </div>
-                        <div class="col-3">
-                            <h1 class="info-in-portfolio">${s.getESGStats().get("total_grade")}</h1>
-                        </div>
-                    </div>
-                    <c:out value="${stocknum}"/>
-                    <c:set var="stocknum" value="${stocknum + 1}" scope="page"/>
+                    <a onclick="myFunction(this.id)" href="#" id="stock${stocknum}">
+                    <div class="row gx-2 stock-in-portfolioB">
 
-                </c:if>
-
-                <c:if test="${grade=='CCC'}">
-                    <div class="row gx-2 stock-in-portfolioCCC" id="stock${stocknum}">
-                        <div class="col-9 company-in-portfolio">
-                            <h2>${s.getESGStats().get('company_name')}</h2>
-                        </div>
-                        <div class="col-3">
-                            <h1 class="info-in-portfolio">${s.getESGStats().get("total_grade")}</h1>
-                        </div>
-                    </div>
-                    <c:out value="${stocknum}"/>
-                    <c:set var="stocknum" value="${stocknum + 1}" scope="page"/>
-
-                </c:if>
-
-                <c:if test="${grade=='A'}">
-                    <div class="row gx-2 stock-in-portfolioA" id="stock${stocknum}">
                         <div class="col-6 company-in-portfolio">
                             <h2>${s.getESGStats().get('company_name')}</h2>
                         </div>
@@ -133,6 +110,40 @@
                             <h1 class="info-in-portfolio">${s.getESGStats().get("total_grade")}</h1>
                         </div>
                     </div>
+                    </a>
+
+                    <c:out value="${stocknum}"/>
+                    <c:set var="stocknum" value="${stocknum + 1}" scope="page"/>
+
+                </c:if>
+
+                <c:if test="${grade=='CCC'}">
+                    <a onclick="myFunction()" href="#" id="stock${stocknum}">
+                    <div class="row gx-2 stock-in-portfolioCCC">
+                        <div class="col-9 company-in-portfolio">
+                            <h2>${s.getESGStats().get('company_name')}</h2>
+                        </div>
+                        <div class="col-3">
+                            <h1 class="info-in-portfolio">${s.getESGStats().get("total_grade")}</h1>
+                        </div>
+                    </div>
+                    </a>
+                    <c:out value="${stocknum}"/>
+                    <c:set var="stocknum" value="${stocknum + 1}" scope="page"/>
+
+                </c:if>
+
+                <c:if test="${grade=='A'}">
+                    <a onclick="myFunction()" href="#" id="stock${stocknum}">
+                    <div class="row gx-2 stock-in-portfolioA">
+                        <div class="col-6 company-in-portfolio">
+                            <h2>${s.getESGStats().get('company_name')}</h2>
+                        </div>
+                        <div class="col-6">
+                            <h1 class="info-in-portfolio">${s.getESGStats().get("total_grade")}</h1>
+                        </div>
+                    </div>
+                    </a>
                     <c:out value="${stocknum}"/>
                     <c:set var="stocknum" value="${stocknum + 1}" scope="page"/>
 
@@ -157,8 +168,8 @@
         <!---->
         <!--WELCOME SIDE PANEL-->
         <!---->
-        <div class="col-lg-4 gx-5">
-            <div  id="company-info-box">
+        <div class="col-lg-4 gx-5" id="company-info-box">
+            <div id="welcome-container">
             <h2 id="welcome-message">Welcome to<br>ESGInvest</h2>
 
             <br>
@@ -169,6 +180,8 @@
                 <p>Add a stock using the plus button at the top of the page</p>
                 <p>Or <strong style="color: var(--navy)">Request a Curated Portfolio</strong> to get a recommended list of stocks that meet your environmental, social, and governance standards.</p>
             </div>
+
+
 
             <button id="learn-more">Learn More About ESG</button>
             <!-- The Modal -->
@@ -211,6 +224,11 @@
                 </div>
             </div>
             </div>
+            <div id="stock-info-container">
+                <p>hey there this is for a stock</p>
+
+            </div>
+            <button onclick="myFunction()">Try it</button>
         </div>
 
 
@@ -219,8 +237,29 @@
 <!--end of container div-->
 </div>
 
+<!--hide and show welcome message-->
+<script>
+    function myFunction(clicked) {
+        var x = document.getElementById("welcome-container");
+        x.style.display = "none";
 
-<!--load stock info to side bar-->
+        var y = document.getElementById("stock-info-container");
+        if (y.style.display === "none") {
+            y.style.display = "block";
+        } else {
+            y.style.display = "block";
+        }
+
+        var stockScore = '<%=request.getAttribute("esg")%>';
+        var stockScore2 = '${resultesg}';
+
+        y.innerHTML = "id = " + clicked + " esg score = " + stockScore + stockScore2;
+
+
+    }
+</script>
+
+<!--load stock info to side bar - HUGE TRIAL AS OF NOW ahhhh-->
 <script>
     $(document).on("click", "#somebutton", function() {             // When HTML DOM "click" event is invoked on element with ID "somebutton", execute the following function...
         $.get("ESGInfoServlet", function(responseXml) {                // Execute Ajax GET request on URL of "someservlet" and execute the following function with Ajax response XML...
