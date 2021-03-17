@@ -62,63 +62,82 @@
             <!---->
             <!--STOCKS IN PORTFOLIO-->
             <!---->
+            <c:set var="stocknum" value="0" scope="page"/>
             <c:forEach items="${allStocks}" var="s">
                 <c:set var="grade" value="${s.getESGStats().get('total_grade')}"/>
 
+
                 <c:if test="${grade=='BBB'}">
-                <div class="row gx-2" id="stock-in-portfolioBBB">
-                    <div class="col-6 company-in-portfolio">
-                        <h2>${s.getName()}</h2>
+
+                <div class="row gx-2 stock-in-portfolioBBB" id="stock${stocknum}">
+                    <div class="col-9 company-in-portfolio">
+                        <h2>${s.getESGStats().get('company_name')}</h2>
                     </div>
-                    <div class="col-6">
+                    <div class="col-3">
                         <h1 class="info-in-portfolio">${s.getESGStats().get("total_grade")}</h1>
                     </div>
                 </div>
+                    <c:out value="${stocknum}"/>
+                    <c:set var="stocknum" value="${stocknum + 1}" scope="page"/>
+
                 </c:if>
 
                 <c:if test="${grade=='BB'}">
-                    <div class="row gx-2" id="stock-in-portfolioBB">
-                        <div class="col-6 company-in-portfolio">
-                            <h2>${s.getName()}</h2>
+                    <div class="row gx-2 stock-in-portfolioBB" id="stock${stocknum}">
+                        <div class="col-9 company-in-portfolio">
+                            <h2>${s.getESGStats().get('company_name')}</h2>
                         </div>
-                        <div class="col-6">
+                        <div class="col-3">
                             <h1 class="info-in-portfolio">${s.getESGStats().get("total_grade")}</h1>
                         </div>
                     </div>
+                    <c:out value="${stocknum}"/>
+                    <c:set var="stocknum" value="${stocknum + 1}" scope="page"/>
+
                 </c:if>
 
                 <c:if test="${grade=='B'}">
-                    <div class="row gx-2" id="stock-in-portfolioB">
-                        <div class="col-6 company-in-portfolio">
-                            <h2>${s.getName()}</h2>
+                    <div class="row gx-2 stock-in-portfolioB" id="stock${stocknum}">
+                        <div class="col-9 company-in-portfolio">
+                            <h2>${s.getESGStats().get('company_name')}</h2>
                         </div>
-                        <div class="col-6">
+                        <div class="col-3">
                             <h1 class="info-in-portfolio">${s.getESGStats().get("total_grade")}</h1>
                         </div>
                     </div>
+                    <c:out value="${stocknum}"/>
+                    <c:set var="stocknum" value="${stocknum + 1}" scope="page"/>
+
                 </c:if>
 
                 <c:if test="${grade=='CCC'}">
-                    <div class="row gx-2" id="stock-in-portfolioCCC">
-                        <div class="col-6 company-in-portfolio">
-                            <h2>${s.getName()}</h2>
+                    <div class="row gx-2 stock-in-portfolioCCC" id="stock${stocknum}">
+                        <div class="col-9 company-in-portfolio">
+                            <h2>${s.getESGStats().get('company_name')}</h2>
                         </div>
-                        <div class="col-6">
+                        <div class="col-3">
                             <h1 class="info-in-portfolio">${s.getESGStats().get("total_grade")}</h1>
                         </div>
                     </div>
+                    <c:out value="${stocknum}"/>
+                    <c:set var="stocknum" value="${stocknum + 1}" scope="page"/>
+
                 </c:if>
 
                 <c:if test="${grade=='A'}">
-                    <div class="row gx-2" id="stock-in-portfolioA">
+                    <div class="row gx-2 stock-in-portfolioA" id="stock${stocknum}">
                         <div class="col-6 company-in-portfolio">
-                            <h2>${s.getName()}</h2>
+                            <h2>${s.getESGStats().get('company_name')}</h2>
                         </div>
                         <div class="col-6">
                             <h1 class="info-in-portfolio">${s.getESGStats().get("total_grade")}</h1>
                         </div>
                     </div>
+                    <c:out value="${stocknum}"/>
+                    <c:set var="stocknum" value="${stocknum + 1}" scope="page"/>
+
                 </c:if>
+
             </c:forEach>
 
             <!--curate portfolio button-->
@@ -131,13 +150,15 @@
                     <p>**curating portfolio stuff will go here**</p>
                 </div>
             </div>
+
         <!--end of portfolio column-->
         </div>
 
         <!---->
         <!--WELCOME SIDE PANEL-->
         <!---->
-        <div class="col-lg-4 gx-5" id="company-info-box">
+        <div class="col-lg-4 gx-5">
+            <div  id="company-info-box">
             <h2 id="welcome-message">Welcome to<br>ESGInvest</h2>
 
             <br>
@@ -189,15 +210,24 @@
                         comparison with its peers and improvement scores.</p>
                 </div>
             </div>
-
+            </div>
         </div>
+
+
     <!--end of row div-->
     </div>
 <!--end of container div-->
 </div>
 
 
-
+<!--load stock info to side bar-->
+<script>
+    $(document).on("click", "#somebutton", function() {             // When HTML DOM "click" event is invoked on element with ID "somebutton", execute the following function...
+        $.get("ESGInfoServlet", function(responseXml) {                // Execute Ajax GET request on URL of "someservlet" and execute the following function with Ajax response XML...
+            $("#somediv").html($(responseXml).find("data").html()); // Parse XML, find <data> element and append its HTML to HTML DOM element with ID "somediv".
+        });
+    });
+</script>
 
 <!--for click to add a div button-->
 <script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>

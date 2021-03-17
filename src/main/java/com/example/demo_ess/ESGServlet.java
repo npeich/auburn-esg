@@ -11,7 +11,7 @@ import java.util.Locale;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 
-@WebServlet(name = "CalcServlet", urlPatterns = {"", "/"})
+@WebServlet(name = "ESGServlet", urlPatterns = {"", "/"})
 public class ESGServlet extends HttpServlet {
     User user = new User("nat", "password");
     @Override

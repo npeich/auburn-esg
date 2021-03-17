@@ -32,6 +32,7 @@ public class User {
         HashMap<String,String> ESG = stock.getESGStats();
         HashMap<String,String> price = stock.getStockPrice();
         System.out.println(stockTicker.toUpperCase());
+        System.out.println("Company Name: " + ESG.get("company_name"));
         System.out.println("Total ESG Score: " + ESG.get("total") + " " + ESG.get("total_grade"));
         System.out.println("Environmental: " + ESG.get("environment_score") + " " + ESG.get("environment_grade"));
         System.out.println("Social: " + ESG.get("social_score") + " " + ESG.get("social_grade"));
