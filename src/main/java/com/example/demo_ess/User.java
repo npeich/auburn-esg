@@ -43,29 +43,7 @@ public class User {
         return stock;
     }
 
-    public Stock getTickerInfo(String ticker) {
-        Stock stock = new Stock(ticker);
-        if (stock.getESGStats() == null) {
-            System.out.println("Invalid Ticker");
-            return null;
-        }
-        HashMap<String,String> ESG = stock.getESGStats();
-        HashMap<String,String> price = stock.getStockPrice();
-        System.out.println(ticker.toUpperCase());
-        System.out.println("Company Name: " + ESG.get("company_name"));
-        System.out.println("Total ESG Score: " + ESG.get("total") + " " + ESG.get("total_grade"));
-        System.out.println("Environmental: " + ESG.get("environment_score") + " " + ESG.get("environment_grade"));
-        System.out.println("Social: " + ESG.get("social_score") + " " + ESG.get("social_grade"));
-        System.out.println("Governance: " + ESG.get("governance_score") + " " + ESG.get("governance_grade"));
-        System.out.println("Price: " + price.get("regularMarketPrice"));
-        System.out.println("Open: " + price.get("regularMarketOpen"));
-        System.out.println("Change: " + price.get("Change") + " -> " + price.get("regularMarketChangePercent") + "%");
-        return stock;
-    }
 
-    public int getIndex(Stock stock) {
-        return portfolio.indexOf(stock);
-    }
 
     public void removeStock(String stockTicker) {
     }

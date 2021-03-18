@@ -18,14 +18,6 @@ public class ESGServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 
-        /*ArrayList<Stock> stocks = user.getPortfolio();
-        ArrayList<String> stocksString = null;
-
-        for (Stock sOld : stocks) {
-            stocksString.add(sOld.getName() + " : " + sOld.getESGStats().get("total"));
-        }
-         */
-
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/index.jsp");
         requestDispatcher.forward(request, response);
     }
@@ -47,7 +39,6 @@ public class ESGServlet extends HttpServlet {
         else {
             Stock s = new Stock(stockIn);
             user.addStock(stockIn);
-            if (!user.getPortfolio().contains(s)) {
 
                 HashMap<String, String> infoReturn = new HashMap<String, String>();
                 HashMap<String, String> priceReturn = new HashMap<String, String>();
@@ -60,7 +51,6 @@ public class ESGServlet extends HttpServlet {
                 esg = esg.substring(0, esg.length() - 5);
                 String letter = infoReturn.get("total_grade");
                 String price = priceReturn.get("regularMarketPrice");
-                int index = user.getIndex(s);
 
                 ArrayList<Stock> port = user.getPortfolio();
 
@@ -70,14 +60,7 @@ public class ESGServlet extends HttpServlet {
                 request.setAttribute("resultesg", esg);
                 request.setAttribute("resultprice", "$" + price);
                 request.setAttribute("allStocks", port);
-                request.setAttribute("stockIndex", index);
 
-
-            }
-            else {
-                error = "Stock already added, please pick a new one";
-                request.setAttribute("error", error);
-            }
             getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
             //doGet(request, response);
         }
