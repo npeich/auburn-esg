@@ -8,7 +8,6 @@ public class User {
     public String username;
     public ArrayList<Stock> portfolio;
     public String password;
-    DatabaseManager db = new DatabaseManager();
 
     User(String usernameIn, String passwordIn) {
         this.username = usernameIn;
@@ -17,7 +16,6 @@ public class User {
     }
 
     public ArrayList<Stock> getPortfolio() {
-        portfolio = db.loadAllStocks(username);
         System.out.println("Portfolio");
         for (Stock stock : portfolio)
             System.out.println(stock.stockTicker.toUpperCase() + "   " + stock.getESGStats().get("total"));
@@ -26,21 +24,11 @@ public class User {
 
     public Stock addStock(String stockTicker) {
         Stock stock = new Stock(stockTicker);
-        //check if stock is valid
         if (stock.getESGStats() == null) {
             System.out.println("Invalid Ticker");
             return null;
         }
-        // Check if stock is already in portfolio
-        for (Stock company : portfolio) {
-            if (company.getName().equalsIgnoreCase(stockTicker)) {
-                return null;
-            }
-        }
         portfolio.add(stock);
-        db.saveStock(username, stockTicker.toUpperCase());
-
-
         HashMap<String,String> ESG = stock.getESGStats();
         HashMap<String,String> price = stock.getStockPrice();
         System.out.println(stockTicker.toUpperCase());
@@ -80,13 +68,6 @@ public class User {
     }
 
     public void removeStock(String stockTicker) {
-        for (Stock stock : portfolio) {
-            if (stock.getName().equalsIgnoreCase(stockTicker)) {
-                portfolio.remove(stock);
-                db.deleteStock(stockTicker.toUpperCase());
-                return;
-            }
-        }
     }
     public ArrayList<Stock> sortEnvironmental() {
         return null;
@@ -112,7 +93,7 @@ public class User {
         User user = new User(username, password);
         String action = "";
         while (!action.equals("e")) {
-            System.out.println("\nWould you like to add a stock (a), view portfolio (p), delete stock (d), or exit (e)?\n");
+            System.out.println("\nWould you like to add a stock (a), view portfolio (p), or exit (e)?\n");
             action = input.next();
             if (action.equals("a")) {
                 System.out.println("Enter Stock Ticker: ");
@@ -121,11 +102,6 @@ public class User {
             }
             if (action.equals("p")) {
                 ArrayList<Stock> portfolio = user.getPortfolio();
-            }
-            if (action.equals("d")) {
-                System.out.println("Enter Stock Ticker: ");
-                String stockRemove = input.next();
-                user.removeStock(stockRemove);
             }
         }
 

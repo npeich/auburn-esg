@@ -71,12 +71,8 @@
                     ticker('${s.getName()}');
                     totalesg('${s.getESGStats().get('total')}');
                     environment('${s.getESGStats().get("environment_score")}');
-                    envG('${s.getESGStats().get("environment_grade")}');
                     social('${s.getESGStats().get("social_score")}');
-                    socialG('${s.getESGStats().get("social_grade")}');
-                    gov('${s.getESGStats().get("governance_score")}');
-                    govG('${s.getESGStats().get("governance_grade")}');
-                    totalGrade('${s.getESGStats().get("total_grade")}')"
+                    gov('${s.getESGStats().get("governance_score")}')"
                        href="#" id="stock${stocknum}">
                     <div class="row gx-2 stock-in-portfolioBBB">
                         <div class="col-9 company-in-portfolio">
@@ -91,17 +87,7 @@
                 </c:if>
 
                 <c:if test="${grade=='BB'}">
-                    <a onclick="company('${s.getESGStats().get('company_name')}');
-                            ticker('${s.getName()}');
-                            totalesg('${s.getESGStats().get('total')}');
-                            environment('${s.getESGStats().get("environment_score")}');
-                            envG('${s.getESGStats().get("environment_grade")}');
-                            social('${s.getESGStats().get("social_score")}');
-                            socialG('${s.getESGStats().get("social_grade")}');
-                            gov('${s.getESGStats().get("governance_score")}');
-                            govG('${s.getESGStats().get("governance_grade")}');
-                            totalGrade('${s.getESGStats().get("total_grade")}')"
-                       href="#" id="stock${stocknum}">
+                    <a onclick="myFunction('${s.getESGStats().get('company_name')}')" href="#" id="stock${stocknum}">
                     <div class="row gx-2 stock-in-portfolioBB">
                         <div class="col-9 company-in-portfolio">
                             <h2>${s.getESGStats().get('company_name')}</h2>
@@ -115,17 +101,7 @@
                 </c:if>
 
                 <c:if test="${grade=='B'}">
-                    <a onclick="company('${s.getESGStats().get('company_name')}');
-                            ticker('${s.getName()}');
-                            totalesg('${s.getESGStats().get('total')}');
-                            environment('${s.getESGStats().get("environment_score")}');
-                            envG('${s.getESGStats().get("environment_grade")}');
-                            social('${s.getESGStats().get("social_score")}');
-                            socialG('${s.getESGStats().get("social_grade")}');
-                            gov('${s.getESGStats().get("governance_score")}');
-                            govG('${s.getESGStats().get("governance_grade")}');
-                            totalGrade('${s.getESGStats().get("total_grade")}')"
-                       href="#" id="stock${stocknum}">
+                    <a onclick="myFunction('${s.getESGStats().get('company_name')}')" href="#" id="stock${stocknum}">
                     <div class="row gx-2 stock-in-portfolioB">
 
                         <div class="col-6 company-in-portfolio">
@@ -140,17 +116,7 @@
                 </c:if>
 
                 <c:if test="${grade=='CCC'}">
-                    <a onclick="company('${s.getESGStats().get('company_name')}');
-                            ticker('${s.getName()}');
-                            totalesg('${s.getESGStats().get('total')}');
-                            environment('${s.getESGStats().get("environment_score")}');
-                            envG('${s.getESGStats().get("environment_grade")}');
-                            social('${s.getESGStats().get("social_score")}');
-                            socialG('${s.getESGStats().get("social_grade")}');
-                            gov('${s.getESGStats().get("governance_score")}');
-                            govG('${s.getESGStats().get("governance_grade")}');
-                            totalGrade('${s.getESGStats().get("total_grade")}')"
-                       href="#" id="stock${stocknum}">
+                    <a onclick="myFunction('${s.getESGStats().get('company_name')}')" href="#" id="stock${stocknum}">
                     <div class="row gx-2 stock-in-portfolioCCC">
                         <div class="col-9 company-in-portfolio">
                             <h2>${s.getESGStats().get('company_name')}</h2>
@@ -164,17 +130,7 @@
                 </c:if>
 
                 <c:if test="${grade=='A'}">
-                    <a onclick="company('${s.getESGStats().get('company_name')}');
-                            ticker('${s.getName()}');
-                            totalesg('${s.getESGStats().get('total')}');
-                            environment('${s.getESGStats().get("environment_score")}');
-                            envG('${s.getESGStats().get("environment_grade")}');
-                            social('${s.getESGStats().get("social_score")}');
-                            socialG('${s.getESGStats().get("social_grade")}');
-                            gov('${s.getESGStats().get("governance_score")}');
-                            govG('${s.getESGStats().get("governance_grade")}');
-                            totalGrade('${s.getESGStats().get("total_grade")}')"
-                       href="#" id="stock${stocknum}">
+                    <a onclick="myFunction('${s.getESGStats().get('company_name')}')" href="#" id="stock${stocknum}">
                     <div class="row gx-2 stock-in-portfolioA">
                         <div class="col-6 company-in-portfolio">
                             <h2>${s.getESGStats().get('company_name')}</h2>
@@ -266,14 +222,12 @@
                 <h2 id="info-company-name">Company Name</h2>
                 <p id="info-ticker">Stock Ticker</p>
                 <p id="info-total-esg">Total ESG Score</p>
-                <p id="info-environment">Environmental Score</p>
-                <p id="env-grade">Grade</p>
                 <p id="info-social">Social Score</p>
-                <p id="social-grade">grade</p>
+
+                <p id="info-environment">Environmental Score</p>
                 <p id="info-gov">Governance Score</p>
-                <p id="gov-grade">grade</p>
-                <h2 id="info-letter-grade">Total Letter Grade</h2>
-                <!--<hr>
+                <p id="info-letter-grade">Total Letter Grade</p>
+                <hr>
                 <p id="info-price">Stock Price</p>
                 <p id="info-price-change">Stock Price Change</p>
                 <p id="info-open">Stock Price Open</p>
@@ -285,7 +239,7 @@
                 <p id="info-div">Div Yield</p>
                 <hr>
                 <p id="info-top-stories">Top Stories</p>
-                <br>-->
+                <br>
                 <button id="remove-stock">Remove Stock</button>
             </div>
 
@@ -326,18 +280,6 @@
     }
     function gov(clicked) {
         document.getElementById("info-gov").innerText = "Total Governance Score: " + clicked.substring(0, 3);
-    }
-    function socialG(clicked) {
-        document.getElementById("social-grade").innerText = "(" + clicked + ")";
-    }
-    function envG(clicked) {
-        document.getElementById("env-grade").innerText = "(" + clicked + ")";
-    }
-    function govG(clicked) {
-        document.getElementById("gov-grade").innerText = "(" + clicked + ")";
-    }
-    function totalGrade(clicked) {
-        document.getElementById("info-letter-grade").innerText = clicked;
     }
 
 </script>
