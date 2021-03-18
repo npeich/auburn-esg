@@ -13,7 +13,7 @@ import javax.servlet.RequestDispatcher;
 
 @WebServlet(name = "ESGServlet", urlPatterns = {"", "/"})
 public class ESGServlet extends HttpServlet {
-    User user = new User("nat", "password");
+    User user = new User("test", "testpass");
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);

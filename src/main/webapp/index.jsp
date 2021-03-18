@@ -340,7 +340,6 @@
         document.getElementById("info-letter-grade").innerText = clicked;
     }
 
-
 </script>
 
 <!--pop up for info on ESGs-->
