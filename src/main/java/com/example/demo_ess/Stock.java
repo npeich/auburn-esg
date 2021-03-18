@@ -91,6 +91,8 @@ public class Stock {
         return stockTicker;
     }
 
+
+
     public static void main(String[] args) {
         Stock amazon = new Stock("wfc");
         HashMap<String, String> list = new HashMap<String, String>();
