@@ -113,7 +113,7 @@ input[type=submit] {
     border-radius: 20px;
     text-align: center;
     margin-top: 30px;
-    height: 600px;
+
 }
 
 #curate-portfolio {
@@ -208,10 +208,33 @@ a {
     background-color: var(--teal);
 }
 
+#remove-stock {
+    color: var(--red);
+    background-color: var(--white);
+    font-weight: 700;
+    font-size: 24px;
+    border: 3px solid var(--red);
+    border-radius: 20px;
+    padding: 10px;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+#remove-stock:hover {
+    color: var(--white);
+    background-color: var(--red);
+}
+
 hr {
     width: 70%;
     margin: auto;
     color: var(--teal);
+}
+
+#welcome-container {
+    height: 600px;
 }
 
 #welcome-message {
@@ -278,4 +301,5 @@ hr {
 /*---for stock extra info---*/
 #stock-info-container {
     display: none;
+    height: 700px;
 }

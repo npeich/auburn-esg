@@ -66,25 +66,42 @@
             <c:forEach items="${allStocks}" var="s">
                 <c:set var="grade" value="${s.getESGStats().get('total_grade')}"/>
 
-
                 <c:if test="${grade=='BBB'}">
-                <a onclick="myFunction()" href="#" id="stock${stocknum}">
-                <div class="row gx-2 stock-in-portfolioBBB">
-                    <div class="col-9 company-in-portfolio">
-                        <h2>${s.getESGStats().get('company_name')}</h2>
+                    <a onclick="company('${s.getESGStats().get('company_name')}');
+                    ticker('${s.getName()}');
+                    totalesg('${s.getESGStats().get('total')}');
+                    environment('${s.getESGStats().get("environment_score")}');
+                    envG('${s.getESGStats().get("environment_grade")}');
+                    social('${s.getESGStats().get("social_score")}');
+                    socialG('${s.getESGStats().get("social_grade")}');
+                    gov('${s.getESGStats().get("governance_score")}');
+                    govG('${s.getESGStats().get("governance_grade")}');
+                    totalGrade('${s.getESGStats().get("total_grade")}')"
+                       href="#" id="stock${stocknum}">
+                    <div class="row gx-2 stock-in-portfolioBBB">
+                        <div class="col-9 company-in-portfolio">
+                            <h2>${s.getESGStats().get('company_name')}</h2>
+                        </div>
+                        <div class="col-3">
+                            <h1 class="info-in-portfolio">${s.getESGStats().get("total_grade")}</h1>
+                        </div>
                     </div>
-                    <div class="col-3">
-                        <h1 class="info-in-portfolio">${s.getESGStats().get("total_grade")}</h1>
-                    </div>
-                </div>
-                </a>
-                    <c:out value="${stocknum}"/>
+                    </a>
                     <c:set var="stocknum" value="${stocknum + 1}" scope="page"/>
-
                 </c:if>
 
                 <c:if test="${grade=='BB'}">
-                    <a onclick="myFunction()" href="#" id="stock${stocknum}">
+                    <a onclick="company('${s.getESGStats().get('company_name')}');
+                            ticker('${s.getName()}');
+                            totalesg('${s.getESGStats().get('total')}');
+                            environment('${s.getESGStats().get("environment_score")}');
+                            envG('${s.getESGStats().get("environment_grade")}');
+                            social('${s.getESGStats().get("social_score")}');
+                            socialG('${s.getESGStats().get("social_grade")}');
+                            gov('${s.getESGStats().get("governance_score")}');
+                            govG('${s.getESGStats().get("governance_grade")}');
+                            totalGrade('${s.getESGStats().get("total_grade")}')"
+                       href="#" id="stock${stocknum}">
                     <div class="row gx-2 stock-in-portfolioBB">
                         <div class="col-9 company-in-portfolio">
                             <h2>${s.getESGStats().get('company_name')}</h2>
@@ -94,13 +111,21 @@
                         </div>
                     </div>
                     </a>
-                    <c:out value="${stocknum}"/>
                     <c:set var="stocknum" value="${stocknum + 1}" scope="page"/>
-
                 </c:if>
 
                 <c:if test="${grade=='B'}">
-                    <a onclick="myFunction(this.id)" href="#" id="stock${stocknum}">
+                    <a onclick="company('${s.getESGStats().get('company_name')}');
+                            ticker('${s.getName()}');
+                            totalesg('${s.getESGStats().get('total')}');
+                            environment('${s.getESGStats().get("environment_score")}');
+                            envG('${s.getESGStats().get("environment_grade")}');
+                            social('${s.getESGStats().get("social_score")}');
+                            socialG('${s.getESGStats().get("social_grade")}');
+                            gov('${s.getESGStats().get("governance_score")}');
+                            govG('${s.getESGStats().get("governance_grade")}');
+                            totalGrade('${s.getESGStats().get("total_grade")}')"
+                       href="#" id="stock${stocknum}">
                     <div class="row gx-2 stock-in-portfolioB">
 
                         <div class="col-6 company-in-portfolio">
@@ -111,14 +136,21 @@
                         </div>
                     </div>
                     </a>
-
-                    <c:out value="${stocknum}"/>
                     <c:set var="stocknum" value="${stocknum + 1}" scope="page"/>
-
                 </c:if>
 
                 <c:if test="${grade=='CCC'}">
-                    <a onclick="myFunction()" href="#" id="stock${stocknum}">
+                    <a onclick="company('${s.getESGStats().get('company_name')}');
+                            ticker('${s.getName()}');
+                            totalesg('${s.getESGStats().get('total')}');
+                            environment('${s.getESGStats().get("environment_score")}');
+                            envG('${s.getESGStats().get("environment_grade")}');
+                            social('${s.getESGStats().get("social_score")}');
+                            socialG('${s.getESGStats().get("social_grade")}');
+                            gov('${s.getESGStats().get("governance_score")}');
+                            govG('${s.getESGStats().get("governance_grade")}');
+                            totalGrade('${s.getESGStats().get("total_grade")}')"
+                       href="#" id="stock${stocknum}">
                     <div class="row gx-2 stock-in-portfolioCCC">
                         <div class="col-9 company-in-portfolio">
                             <h2>${s.getESGStats().get('company_name')}</h2>
@@ -128,13 +160,21 @@
                         </div>
                     </div>
                     </a>
-                    <c:out value="${stocknum}"/>
                     <c:set var="stocknum" value="${stocknum + 1}" scope="page"/>
-
                 </c:if>
 
                 <c:if test="${grade=='A'}">
-                    <a onclick="myFunction()" href="#" id="stock${stocknum}">
+                    <a onclick="company('${s.getESGStats().get('company_name')}');
+                            ticker('${s.getName()}');
+                            totalesg('${s.getESGStats().get('total')}');
+                            environment('${s.getESGStats().get("environment_score")}');
+                            envG('${s.getESGStats().get("environment_grade")}');
+                            social('${s.getESGStats().get("social_score")}');
+                            socialG('${s.getESGStats().get("social_grade")}');
+                            gov('${s.getESGStats().get("governance_score")}');
+                            govG('${s.getESGStats().get("governance_grade")}');
+                            totalGrade('${s.getESGStats().get("total_grade")}')"
+                       href="#" id="stock${stocknum}">
                     <div class="row gx-2 stock-in-portfolioA">
                         <div class="col-6 company-in-portfolio">
                             <h2>${s.getESGStats().get('company_name')}</h2>
@@ -144,11 +184,8 @@
                         </div>
                     </div>
                     </a>
-                    <c:out value="${stocknum}"/>
                     <c:set var="stocknum" value="${stocknum + 1}" scope="page"/>
-
                 </c:if>
-
             </c:forEach>
 
             <!--curate portfolio button-->
@@ -181,10 +218,9 @@
                 <p>Or <strong style="color: var(--navy)">Request a Curated Portfolio</strong> to get a recommended list of stocks that meet your environmental, social, and governance standards.</p>
             </div>
 
-
-
             <button id="learn-more">Learn More About ESG</button>
-            <!-- The Modal -->
+
+                <!-- The Modal -->
             <div id="myModal" class="modal">
                 <div class="modal-content">
                     <span class="close" style="text-align: right">&times;</span>
@@ -224,22 +260,47 @@
                 </div>
             </div>
             </div>
+
+
             <div id="stock-info-container">
-                <p>hey there this is for a stock</p>
-
+                <h2 id="info-company-name">Company Name</h2>
+                <p id="info-ticker">Stock Ticker</p>
+                <p id="info-total-esg">Total ESG Score</p>
+                <p id="info-environment">Environmental Score</p>
+                <p id="env-grade">Grade</p>
+                <p id="info-social">Social Score</p>
+                <p id="social-grade">grade</p>
+                <p id="info-gov">Governance Score</p>
+                <p id="gov-grade">grade</p>
+                <h2 id="info-letter-grade">Total Letter Grade</h2>
+                <!--<hr>
+                <p id="info-price">Stock Price</p>
+                <p id="info-price-change">Stock Price Change</p>
+                <p id="info-open">Stock Price Open</p>
+                <p id="info-close">Stock Price Close</p>
+                <p id="info-high">Stock Price High</p>
+                <p id="info-low">Stock Price Low</p>
+                <p id="info-mktcap">Market Cap</p>
+                <p id="info-pe">P/E ratio</p>
+                <p id="info-div">Div Yield</p>
+                <hr>
+                <p id="info-top-stories">Top Stories</p>
+                <br>-->
+                <button id="remove-stock">Remove Stock</button>
             </div>
-            <button onclick="myFunction()">Try it</button>
-        </div>
 
+        </div>
 
     <!--end of row div-->
     </div>
 <!--end of container div-->
 </div>
 
-<!--hide and show welcome message-->
+<!--populate stock info panel-->
 <script>
-    function myFunction(clicked) {
+    function company(clicked) {
+        console.log("clicked = " + clicked);
+        console.log("button working");
         var x = document.getElementById("welcome-container");
         x.style.display = "none";
 
@@ -249,27 +310,38 @@
         } else {
             y.style.display = "block";
         }
-
-        var stockScore = '<%=request.getAttribute("esg")%>';
-        var stockScore2 = '${resultesg}';
-
-        y.innerHTML = "id = " + clicked + " esg score = " + stockScore + stockScore2;
-
-
+        document.getElementById("info-company-name").innerText = clicked;
     }
-</script>
+    function ticker(clicked) {
+        document.getElementById("info-ticker").innerText = "(" + clicked.toUpperCase() + ")";
+    }
+    function totalesg(clicked) {
+        document.getElementById("info-total-esg").innerText = "Total ESG Score: " + clicked.substring(0, 3);
+    }
+    function environment(clicked) {
+        document.getElementById("info-environment").innerText = "Total Environmental Score: " + clicked.substring(0, 3);
+    }
+    function social(clicked) {
+        document.getElementById("info-social").innerText = "Total Social Score: " + clicked.substring(0, 3);
+    }
+    function gov(clicked) {
+        document.getElementById("info-gov").innerText = "Total Governance Score: " + clicked.substring(0, 3);
+    }
+    function socialG(clicked) {
+        document.getElementById("social-grade").innerText = "(" + clicked + ")";
+    }
+    function envG(clicked) {
+        document.getElementById("env-grade").innerText = "(" + clicked + ")";
+    }
+    function govG(clicked) {
+        document.getElementById("gov-grade").innerText = "(" + clicked + ")";
+    }
+    function totalGrade(clicked) {
+        document.getElementById("info-letter-grade").innerText = clicked;
+    }
 
-<!--load stock info to side bar - HUGE TRIAL AS OF NOW ahhhh-->
-<script>
-    $(document).on("click", "#somebutton", function() {             // When HTML DOM "click" event is invoked on element with ID "somebutton", execute the following function...
-        $.get("ESGInfoServlet", function(responseXml) {                // Execute Ajax GET request on URL of "someservlet" and execute the following function with Ajax response XML...
-            $("#somediv").html($(responseXml).find("data").html()); // Parse XML, find <data> element and append its HTML to HTML DOM element with ID "somediv".
-        });
-    });
-</script>
 
-<!--for click to add a div button-->
-<script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+</script>
 
 <!--pop up for info on ESGs-->
 <script>
