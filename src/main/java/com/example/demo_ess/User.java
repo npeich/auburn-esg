@@ -8,6 +8,7 @@ public class User {
     public String username;
     public ArrayList<Stock> portfolio;
     public String password;
+    DatabaseManager db = new DatabaseManager();
 
     User(String usernameIn, String passwordIn) {
         this.username = usernameIn;
@@ -16,7 +17,6 @@ public class User {
     }
 
     public ArrayList<Stock> getPortfolio() {
-        DatabaseManager db = new DatabaseManager();
         portfolio = db.loadAllStocks(username);
         System.out.println("Portfolio");
         for (Stock stock : portfolio)
@@ -38,7 +38,6 @@ public class User {
             }
         }
         portfolio.add(stock);
-        DatabaseManager db = new DatabaseManager();
         db.saveStock(username, stockTicker.toUpperCase());
 
 
@@ -81,7 +80,6 @@ public class User {
     }
 
     public void removeStock(String stockTicker) {
-        DatabaseManager db = new DatabaseManager();
         for (Stock stock : portfolio) {
             if (stock.getName().equalsIgnoreCase(stockTicker)) {
                 portfolio.remove(stock);
