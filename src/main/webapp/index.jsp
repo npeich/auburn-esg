@@ -76,7 +76,10 @@
                     gradeS('${s.getESGStats().get("social_grade")}');
                     gov('${s.getESGStats().get("governance_score")}');
                     gradeG('${s.getESGStats().get("environment_grade")}');
-                    totalGrade('${s.getESGStats().get('total_grade')}')"
+                    totalGrade('${s.getESGStats().get('total_grade')}');
+                    price('${s.getStockPrice().get('regularMarketPrice')}');
+                    priceChange('${s.getStockPrice().get('regularMarketChangePercent')}');
+                    priceOpen('${s.getStockPrice().get('regularMarketOpen')}')"
                        href="#" id="stock${stocknum}">
                     <div class="row gx-2 stock-in-portfolioBBB">
                         <div class="col-9 company-in-portfolio">
@@ -149,7 +152,10 @@
                             gradeS('${s.getESGStats().get("social_grade")}');
                             gov('${s.getESGStats().get("governance_score")}');
                             gradeG('${s.getESGStats().get("environment_grade")}');
-                            totalGrade('${s.getESGStats().get('total_grade')}')"
+                            totalGrade('${s.getESGStats().get('total_grade')}');
+                            price('${s.getStockPrice().get('regularMarketPrice')}');
+                            priceChange('${s.getStockPrice().get('regularMarketChangePercent')}');
+                            priceOpen('${s.getStockPrice().get('regularMarketOpen')}')"
                        href="#" id="stock${stocknum}">
                     <div class="row gx-2 stock-in-portfolioCCC">
                         <div class="col-9 company-in-portfolio">
@@ -341,6 +347,15 @@
     }
     function totalGrade(clicked) {
         document.getElementById("info-letter-grade").innerText = clicked;
+    }
+    function price(clicked) {
+        document.getElementById("info-price").innerText = "$" + clicked;
+    }
+    function priceChange(clicked) {
+        document.getElementById("info-price-change").innerText = clicked + "%";
+    }
+    function priceOpen(clicked) {
+        document.getElementById("info-open").innerText = "Open Price = $" + clicked;
     }
 
 </script>
