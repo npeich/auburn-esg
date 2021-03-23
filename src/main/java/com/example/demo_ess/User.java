@@ -46,6 +46,12 @@ public class User {
 
 
     public void removeStock(String stockTicker) {
+            for (Stock stock : portfolio) {
+                if (stock.getName().equalsIgnoreCase(stockTicker)) {
+                    portfolio.remove(stock);
+                    return;
+                }
+            }
     }
     public ArrayList<Stock> sortEnvironmental() {
         return null;
@@ -57,8 +63,17 @@ public class User {
         return null;
     }
     public double getAverageESG() {
-        return 0.0;
+        double score = 0;
+        double stockScore;
+
+        for (Stock stock : portfolio) {
+            stockScore = Double.parseDouble(stock.getESGStats().get("total"));
+            score += stockScore;
+        }
+        score = score / portfolio.size();
+        return score;
     }
+
     public ArrayList<Stock> getRecomendations(double lowBound, double upperBound) {
         return null;
     }

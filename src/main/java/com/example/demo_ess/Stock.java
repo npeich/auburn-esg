@@ -94,9 +94,9 @@ public class Stock {
 
 
     public static void main(String[] args) {
-        Stock amazon = new Stock("wfc");
+        Stock amazon = new Stock("fb");
         HashMap<String, String> list = new HashMap<String, String>();
-        list = amazon.getESGStats();
+        list = amazon.getStockStats();
         Set<String> marketPrice = list.keySet();
         System.out.println(list);
     }
