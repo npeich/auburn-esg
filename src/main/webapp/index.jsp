@@ -39,7 +39,7 @@
     <!---->
     <!--SEARCH / ADD-->
     <!---->
-    <form action="/" method="post">
+    <form action="/ESGServlet" method="post">
         <div class="row no-gutters">
             <div class="col-10">
                 <a id="add-button" href="#">+ </a><input id="stock-input" type="text" name="stock">
@@ -71,8 +71,12 @@
                     ticker('${s.getName()}');
                     totalesg('${s.getESGStats().get('total')}');
                     environment('${s.getESGStats().get("environment_score")}');
+                    gradeE('${s.getESGStats().get("environment_grade")}');
                     social('${s.getESGStats().get("social_score")}');
-                    gov('${s.getESGStats().get("governance_score")}')"
+                    gradeS('${s.getESGStats().get("social_grade")}');
+                    gov('${s.getESGStats().get("governance_score")}');
+                    gradeG('${s.getESGStats().get("environment_grade")}');
+                    totalGrade('${s.getESGStats().get('total_grade')}')"
                        href="#" id="stock${stocknum}">
                     <div class="row gx-2 stock-in-portfolioBBB">
                         <div class="col-9 company-in-portfolio">
@@ -87,7 +91,17 @@
                 </c:if>
 
                 <c:if test="${grade=='BB'}">
-                    <a onclick="myFunction('${s.getESGStats().get('company_name')}')" href="#" id="stock${stocknum}">
+                    <a onclick="company('${s.getESGStats().get('company_name')}');
+                            ticker('${s.getName()}');
+                            totalesg('${s.getESGStats().get('total')}');
+                            environment('${s.getESGStats().get("environment_score")}');
+                            gradeE('${s.getESGStats().get("environment_grade")}');
+                            social('${s.getESGStats().get("social_score")}');
+                            gradeS('${s.getESGStats().get("social_grade")}');
+                            gov('${s.getESGStats().get("governance_score")}');
+                            gradeG('${s.getESGStats().get("environment_grade")}');
+                            totalGrade('${s.getESGStats().get('total_grade')}')"
+                       href="#" id="stock${stocknum}">
                     <div class="row gx-2 stock-in-portfolioBB">
                         <div class="col-9 company-in-portfolio">
                             <h2>${s.getESGStats().get('company_name')}</h2>
@@ -101,7 +115,17 @@
                 </c:if>
 
                 <c:if test="${grade=='B'}">
-                    <a onclick="myFunction('${s.getESGStats().get('company_name')}')" href="#" id="stock${stocknum}">
+                    <a onclick="company('${s.getESGStats().get('company_name')}');
+                            ticker('${s.getName()}');
+                            totalesg('${s.getESGStats().get('total')}');
+                            environment('${s.getESGStats().get("environment_score")}');
+                            gradeE('${s.getESGStats().get("environment_grade")}');
+                            social('${s.getESGStats().get("social_score")}');
+                            gradeS('${s.getESGStats().get("social_grade")}');
+                            gov('${s.getESGStats().get("governance_score")}');
+                            gradeG('${s.getESGStats().get("environment_grade")}');
+                            totalGrade('${s.getESGStats().get('total_grade')}')"
+                       href="#" id="stock${stocknum}">
                     <div class="row gx-2 stock-in-portfolioB">
 
                         <div class="col-6 company-in-portfolio">
@@ -116,7 +140,17 @@
                 </c:if>
 
                 <c:if test="${grade=='CCC'}">
-                    <a onclick="myFunction('${s.getESGStats().get('company_name')}')" href="#" id="stock${stocknum}">
+                    <a onclick="company('${s.getESGStats().get('company_name')}');
+                            ticker('${s.getName()}');
+                            totalesg('${s.getESGStats().get('total')}');
+                            environment('${s.getESGStats().get("environment_score")}');
+                            gradeE('${s.getESGStats().get("environment_grade")}');
+                            social('${s.getESGStats().get("social_score")}');
+                            gradeS('${s.getESGStats().get("social_grade")}');
+                            gov('${s.getESGStats().get("governance_score")}');
+                            gradeG('${s.getESGStats().get("environment_grade")}');
+                            totalGrade('${s.getESGStats().get('total_grade')}')"
+                       href="#" id="stock${stocknum}">
                     <div class="row gx-2 stock-in-portfolioCCC">
                         <div class="col-9 company-in-portfolio">
                             <h2>${s.getESGStats().get('company_name')}</h2>
@@ -130,7 +164,17 @@
                 </c:if>
 
                 <c:if test="${grade=='A'}">
-                    <a onclick="myFunction('${s.getESGStats().get('company_name')}')" href="#" id="stock${stocknum}">
+                    <a onclick="company('${s.getESGStats().get('company_name')}');
+                            ticker('${s.getName()}');
+                            totalesg('${s.getESGStats().get('total')}');
+                            environment('${s.getESGStats().get("environment_score")}');
+                            gradeE('${s.getESGStats().get("environment_grade")}');
+                            social('${s.getESGStats().get("social_score")}');
+                            gradeS('${s.getESGStats().get("social_grade")}');
+                            gov('${s.getESGStats().get("governance_score")}');
+                            gradeG('${s.getESGStats().get("environment_grade")}');
+                            totalGrade('${s.getESGStats().get('total_grade')}')"
+                       href="#" id="stock${stocknum}">
                     <div class="row gx-2 stock-in-portfolioA">
                         <div class="col-6 company-in-portfolio">
                             <h2>${s.getESGStats().get('company_name')}</h2>
@@ -222,11 +266,10 @@
                 <h2 id="info-company-name">Company Name</h2>
                 <p id="info-ticker">Stock Ticker</p>
                 <p id="info-total-esg">Total ESG Score</p>
-                <p id="info-social">Social Score</p>
-
-                <p id="info-environment">Environmental Score</p>
-                <p id="info-gov">Governance Score</p>
-                <p id="info-letter-grade">Total Letter Grade</p>
+                <h2 id="info-letter-grade">Total Letter Grade</h2>
+                <p><span id="info-environment">Environmental Score</span><span id="grade-e">grade</span></p>
+                <p><span id="info-social">Social Score</span><span id="grade-s">grade</span></p>
+                <p><span id="info-gov">Governance Score</span><span id="grade-g">grade</span></p>
                 <hr>
                 <p id="info-price">Stock Price</p>
                 <p id="info-price-change">Stock Price Change</p>
@@ -270,7 +313,13 @@
         document.getElementById("info-ticker").innerText = "(" + clicked.toUpperCase() + ")";
     }
     function totalesg(clicked) {
-        document.getElementById("info-total-esg").innerText = "Total ESG Score: " + clicked.substring(0, 3);
+        if(clicked.length==10) {
+            document.getElementById("info-total-esg").innerText = "Total ESG Score: " + clicked.substring(0,3);
+        }
+        else if (clicked.length==11) {
+            document.getElementById("info-total-esg").innerText = "Total ESG Score: " + clicked.substring(0,4);
+        }
+
     }
     function environment(clicked) {
         document.getElementById("info-environment").innerText = "Total Environmental Score: " + clicked.substring(0, 3);
@@ -280,6 +329,18 @@
     }
     function gov(clicked) {
         document.getElementById("info-gov").innerText = "Total Governance Score: " + clicked.substring(0, 3);
+    }
+    function gradeE(clicked) {
+        document.getElementById("grade-e").innerText = " (" + clicked.substring(0, 3) + ")";
+    }
+    function gradeS(clicked) {
+        document.getElementById("grade-s").innerText = " (" + clicked.substring(0, 3) + ")";
+    }
+    function gradeG(clicked) {
+        document.getElementById("grade-g").innerText = " (" + clicked.substring(0, 3) + ")";
+    }
+    function totalGrade(clicked) {
+        document.getElementById("info-letter-grade").innerText = clicked;
     }
 
 </script>

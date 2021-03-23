@@ -18,13 +18,15 @@ public class ESGServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/index.jsp");
-        requestDispatcher.forward(request, response);
+        //RequestDispatcher requestDispatcher = request.getRequestDispatcher("/index.jsp");
+        //requestDispatcher.forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String stockIn = request.getParameter("stock");
+        log("found stock" + stockIn);
+        System.out.println(stockIn);
         String error;
 
         // check to make sure they arent blank
@@ -62,7 +64,6 @@ public class ESGServlet extends HttpServlet {
                 request.setAttribute("allStocks", port);
 
             getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
-            //doGet(request, response);
         }
 
     }
