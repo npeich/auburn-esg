@@ -44,7 +44,7 @@ public class APIManager {
         String readLine = null;
         HttpURLConnection connection = (HttpURLConnection)  urlForGetRequest.openConnection();
         connection.setRequestMethod("GET");
-        connection.setRequestProperty("x-rapidapi-key", "9a1481d7c2msh108a954e62cd3aap18333ajsn28287b15539c");
+        connection.setRequestProperty("x-rapidapi-key", "fd5f327cfamsh3b67b0cd8185e08p1073aajsn9f4ce2abb80d");
         connection.setRequestProperty("x-rapidapi-host", "stock-price4.p.rapidapi.com");
 
 
