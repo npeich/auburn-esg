@@ -79,7 +79,9 @@
                     totalGrade('${s.getESGStats().get('total_grade')}');
                     price('${s.getStockPrice().get('regularMarketPrice')}');
                     priceChange('${s.getStockPrice().get('regularMarketChangePercent')}');
-                    priceOpen('${s.getStockPrice().get('regularMarketOpen')}')"
+                    priceOpen('${s.getStockPrice().get('regularMarketOpen')}');
+                    priceClose('${s.getStockPrice().get('regularMarketDayRange')}');
+                    average('${average}')"
                        href="#" id="stock${stocknum}">
                     <div class="row gx-2 stock-in-portfolioBBB">
                         <div class="col-9 company-in-portfolio">
@@ -103,7 +105,12 @@
                             gradeS('${s.getESGStats().get("social_grade")}');
                             gov('${s.getESGStats().get("governance_score")}');
                             gradeG('${s.getESGStats().get("environment_grade")}');
-                            totalGrade('${s.getESGStats().get('total_grade')}')"
+                            totalGrade('${s.getESGStats().get('total_grade')}');
+                            price('${s.getStockPrice().get('regularMarketPrice')}');
+                            priceChange('${s.getStockPrice().get('regularMarketChangePercent')}');
+                            priceOpen('${s.getStockPrice().get('regularMarketOpen')}');
+                            priceClose('${s.getStockPrice().get('regularMarketDayRange')}');
+                            average('${average}')"
                        href="#" id="stock${stocknum}">
                     <div class="row gx-2 stock-in-portfolioBB">
                         <div class="col-9 company-in-portfolio">
@@ -127,7 +134,12 @@
                             gradeS('${s.getESGStats().get("social_grade")}');
                             gov('${s.getESGStats().get("governance_score")}');
                             gradeG('${s.getESGStats().get("environment_grade")}');
-                            totalGrade('${s.getESGStats().get('total_grade')}')"
+                            totalGrade('${s.getESGStats().get('total_grade')}');
+                            price('${s.getStockPrice().get('regularMarketPrice')}');
+                            priceChange('${s.getStockPrice().get('regularMarketChangePercent')}');
+                            priceOpen('${s.getStockPrice().get('regularMarketOpen')}');
+                            priceClose('${s.getStockPrice().get('regularMarketDayRange')}');
+                            average('${average}')"
                        href="#" id="stock${stocknum}">
                     <div class="row gx-2 stock-in-portfolioB">
 
@@ -155,7 +167,9 @@
                             totalGrade('${s.getESGStats().get('total_grade')}');
                             price('${s.getStockPrice().get('regularMarketPrice')}');
                             priceChange('${s.getStockPrice().get('regularMarketChangePercent')}');
-                            priceOpen('${s.getStockPrice().get('regularMarketOpen')}')"
+                            priceOpen('${s.getStockPrice().get('regularMarketOpen')}');
+                            priceClose('${s.getStockPrice().get('regularMarketDayRange')}');
+                            average('${average}')"
                        href="#" id="stock${stocknum}">
                     <div class="row gx-2 stock-in-portfolioCCC">
                         <div class="col-9 company-in-portfolio">
@@ -179,7 +193,12 @@
                             gradeS('${s.getESGStats().get("social_grade")}');
                             gov('${s.getESGStats().get("governance_score")}');
                             gradeG('${s.getESGStats().get("environment_grade")}');
-                            totalGrade('${s.getESGStats().get('total_grade')}')"
+                            totalGrade('${s.getESGStats().get('total_grade')}');
+                            price('${s.getStockPrice().get('regularMarketPrice')}');
+                            priceChange('${s.getStockPrice().get('regularMarketChangePercent')}');
+                            priceOpen('${s.getStockPrice().get('regularMarketOpen')}');
+                            priceClose('${s.getStockPrice().get('regularMarketDayRange')}');
+                            average('${average}')"
                        href="#" id="stock${stocknum}">
                     <div class="row gx-2 stock-in-portfolioA">
                         <div class="col-6 company-in-portfolio">
@@ -267,29 +286,52 @@
             </div>
             </div>
 
-
             <div id="stock-info-container">
                 <h2 id="info-company-name">Company Name</h2>
-                <p id="info-ticker">Stock Ticker</p>
-                <p id="info-total-esg">Total ESG Score</p>
-                <h2 id="info-letter-grade">Total Letter Grade</h2>
-                <p><span id="info-environment">Environmental Score</span><span id="grade-e">grade</span></p>
-                <p><span id="info-social">Social Score</span><span id="grade-s">grade</span></p>
-                <p><span id="info-gov">Governance Score</span><span id="grade-g">grade</span></p>
+                <p id="info-ticker" name="removeStock">Stock Ticker</p>
+                <div class="row esginfo">
+                    <div class="col-7">
+                        <p id="info-total-esg">Total ESG Score</p>
+                        <p><span id="info-environment">Environmental Score</span><span id="grade-e">grade</span></p>
+                        <p><span id="info-social">Social Score</span><span id="grade-s">grade</span></p>
+                        <p><span id="info-gov">Governance Score</span><span id="grade-g">grade</span></p>
+                    </div>
+                    <div class="col-5 totalgrade">
+                        <p style="color: var(--navy)">Total Grade</p>
+                        <br>
+                        <h2 id="info-letter-grade">Total Letter Grade</h2>
+                    </div>
+                </div>
+
                 <hr>
+
                 <p id="info-price">Stock Price</p>
                 <p id="info-price-change">Stock Price Change</p>
-                <p id="info-open">Stock Price Open</p>
-                <p id="info-close">Stock Price Close</p>
-                <p id="info-high">Stock Price High</p>
+                <div>
+                    <div col-6>
+                        <p id="info-open">Stock Price Open</p>
+                    </div>
+                    <div col-6>
+                        <p id="info-close">Stock Price Close</p>
+                    </div>
+                </div>
+
+                <!--<p id="info-high">Stock Price High</p>
                 <p id="info-low">Stock Price Low</p>
                 <p id="info-mktcap">Market Cap</p>
                 <p id="info-pe">P/E ratio</p>
-                <p id="info-div">Div Yield</p>
+                <p id="info-div">Div Yield</p>-->
+
                 <hr>
                 <p id="info-top-stories">Top Stories</p>
                 <br>
-                <button id="remove-stock">Remove Stock</button>
+
+                <!--<form action="/Remove" method="post">
+                <button id="remove-stock" type="submit">Remove Stock</button>
+                </form>-->
+
+                <p id="info-average">average</p>
+
             </div>
 
         </div>
@@ -325,38 +367,68 @@
         else if (clicked.length==11) {
             document.getElementById("info-total-esg").innerText = "Total ESG Score: " + clicked.substring(0,4);
         }
+        else {
+            document.getElementById("info-total-esg").innerText = "Total ESG Score: " + clicked;
+        }
 
     }
     function environment(clicked) {
-        document.getElementById("info-environment").innerText = "Total Environmental Score: " + clicked.substring(0, 3);
+        document.getElementById("info-environment").innerHTML = "Total Environmental Score: " + clicked.substring(0, 3);
     }
     function social(clicked) {
-        document.getElementById("info-social").innerText = "Total Social Score: " + clicked.substring(0, 3);
+        document.getElementById("info-social").innerHTML = "Total Social Score: " + clicked.substring(0, 3);
     }
     function gov(clicked) {
-        document.getElementById("info-gov").innerText = "Total Governance Score: " + clicked.substring(0, 3);
+        document.getElementById("info-gov").innerHTML = "Total Governance Score: " + clicked.substring(0, 3);
     }
     function gradeE(clicked) {
-        document.getElementById("grade-e").innerText = " (" + clicked.substring(0, 3) + ")";
+        document.getElementById("grade-e").innerHTML = " (" + clicked.substring(0, 3) + ")";
     }
     function gradeS(clicked) {
-        document.getElementById("grade-s").innerText = " (" + clicked.substring(0, 3) + ")";
+        document.getElementById("grade-s").innerHTML = " (" + clicked.substring(0, 3) + ")";
     }
     function gradeG(clicked) {
-        document.getElementById("grade-g").innerText = " (" + clicked.substring(0, 3) + ")";
+        document.getElementById("grade-g").innerHTML = " (" + clicked.substring(0, 3) + ")";
     }
     function totalGrade(clicked) {
-        document.getElementById("info-letter-grade").innerText = clicked;
+        document.getElementById("info-letter-grade").innerHTML = clicked;
     }
     function price(clicked) {
-        document.getElementById("info-price").innerText = "$" + clicked;
+        document.getElementById("info-price").innerHTML = "$" + clicked;
     }
     function priceChange(clicked) {
-        document.getElementById("info-price-change").innerText = clicked + "%";
+        document.getElementById("info-price-change").innerHTML = "Percent Change = " + clicked + "%";
     }
     function priceOpen(clicked) {
-        document.getElementById("info-open").innerText = "Open Price = $" + clicked;
+        document.getElementById("info-open").innerHTML = "Open Price = $" + clicked;
     }
+    function priceClose(clicked) {
+        document.getElementById("info-close").innerHTML = "Market Day Change = $" + clicked;
+    }
+    /*
+    function priceHigh(clicked) {
+        document.getElementById("info-open").innerHTML = "High = $" + clicked;
+    }
+    function priceLow(clicked) {
+        document.getElementById("info-open").innerHTML = "Low = $" + clicked;
+    }
+    function marketCap(clicked) {
+        document.getElementById("info-open").innerHTML = "Market Cap = $" + clicked;
+    }
+    function peRatio(clicked) {
+        document.getElementById("info-open").innerHTML = "P/E Ratio = " + clicked;
+    }
+    function divYield(clicked) {
+        document.getElementById("info-open").innerHTML = "Div Yield = " + clicked;
+    }
+    */
+
+
+    function average(clicked) {
+        document.getElementById("info-average").innerHTML = "Average ESG Score For Portfolio = " + clicked;
+    }
+
+
 
 </script>
 
