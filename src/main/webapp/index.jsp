@@ -69,6 +69,7 @@
                 <c:if test="${grade=='BBB'}">
                     <a onclick="company('${s.getESGStats().get('company_name')}');
                     ticker('${s.getName()}');
+                    removePrep('${s.getName()}');
                     totalesg('${s.getESGStats().get('total')}');
                     environment('${s.getESGStats().get("environment_score")}');
                     gradeE('${s.getESGStats().get("environment_grade")}');
@@ -98,6 +99,7 @@
                 <c:if test="${grade=='BB'}">
                     <a onclick="company('${s.getESGStats().get('company_name')}');
                             ticker('${s.getName()}');
+                            removePrep('${s.getName()}');
                             totalesg('${s.getESGStats().get('total')}');
                             environment('${s.getESGStats().get("environment_score")}');
                             gradeE('${s.getESGStats().get("environment_grade")}');
@@ -127,6 +129,7 @@
                 <c:if test="${grade=='B'}">
                     <a onclick="company('${s.getESGStats().get('company_name')}');
                             ticker('${s.getName()}');
+                            removePrep('${s.getName()}');
                             totalesg('${s.getESGStats().get('total')}');
                             environment('${s.getESGStats().get("environment_score")}');
                             gradeE('${s.getESGStats().get("environment_grade")}');
@@ -157,6 +160,7 @@
                 <c:if test="${grade=='CCC'}">
                     <a onclick="company('${s.getESGStats().get('company_name')}');
                             ticker('${s.getName()}');
+                            removePrep('${s.getName()}');
                             totalesg('${s.getESGStats().get('total')}');
                             environment('${s.getESGStats().get("environment_score")}');
                             gradeE('${s.getESGStats().get("environment_grade")}');
@@ -186,6 +190,7 @@
                 <c:if test="${grade=='A'}">
                     <a onclick="company('${s.getESGStats().get('company_name')}');
                             ticker('${s.getName()}');
+                            removePrep('${s.getName()}');
                             totalesg('${s.getESGStats().get('total')}');
                             environment('${s.getESGStats().get("environment_score")}');
                             gradeE('${s.getESGStats().get("environment_grade")}');
@@ -287,8 +292,9 @@
             </div>
 
             <div id="stock-info-container">
+
                 <h2 id="info-company-name">Company Name</h2>
-                <p id="info-ticker" name="removeStock">Stock Ticker</p>
+                <p id="info-ticker">Stock Ticker</p>
                 <div class="row esginfo">
                     <div class="col-7">
                         <p id="info-total-esg">Total ESG Score</p>
@@ -325,12 +331,20 @@
                 <hr>
                 <p id="info-top-stories">Top Stories</p>
                 <br>
+                <br>
+                <br>
 
-                <!--<form action="/Remove" method="post">
-                <button id="remove-stock" type="submit">Remove Stock</button>
-                </form>-->
 
                 <p id="info-average">average</p>
+
+                <p></p>
+                <p id="blocker"></p>
+
+
+                <form action="/ESGServlet" method="post">
+                    <input type="hidden" id="removeMe" value="stock" name="toRemove">
+                    <button id="remove-stock" onclick="removeStock()" type="submit">Remove Stock</button>
+                </form>
 
             </div>
 
@@ -405,23 +419,9 @@
     function priceClose(clicked) {
         document.getElementById("info-close").innerHTML = "Market Day Change = $" + clicked;
     }
-    /*
-    function priceHigh(clicked) {
-        document.getElementById("info-open").innerHTML = "High = $" + clicked;
+    function removePrep(clicked) {
+        document.getElementById("removeMe").value = clicked;
     }
-    function priceLow(clicked) {
-        document.getElementById("info-open").innerHTML = "Low = $" + clicked;
-    }
-    function marketCap(clicked) {
-        document.getElementById("info-open").innerHTML = "Market Cap = $" + clicked;
-    }
-    function peRatio(clicked) {
-        document.getElementById("info-open").innerHTML = "P/E Ratio = " + clicked;
-    }
-    function divYield(clicked) {
-        document.getElementById("info-open").innerHTML = "Div Yield = " + clicked;
-    }
-    */
 
 
     function average(clicked) {

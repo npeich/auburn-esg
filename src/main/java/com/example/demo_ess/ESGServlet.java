@@ -25,7 +25,20 @@ public class ESGServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String stockIn = request.getParameter("stock");
+
+        String toDelete = request.getParameter("toRemove");
+        System.out.println("hey this is the stock i want to delete: " + toDelete);
         String error;
+
+        if(toDelete!=null) {
+            System.out.println("trying to delete");
+            user.removeStock(toDelete);
+            ArrayList<Stock> port = user.getPortfolio();
+            request.setAttribute("allStocks", port);
+            getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+            //System.out.println("tried to send get request");
+            //user.getPortfolio();
+        }
 
         // check to make sure they arent blank
         if(stockIn == null || stockIn.isBlank()) {
