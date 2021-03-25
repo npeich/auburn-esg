@@ -28,6 +28,11 @@ public class User {
             System.out.println("Invalid Ticker");
             return null;
         }
+        for (Stock company : portfolio) {
+            if (company.getName().equalsIgnoreCase(stockTicker)) {
+                return null;
+            }
+        }
         portfolio.add(stock);
         HashMap<String,String> ESG = stock.getESGStats();
         HashMap<String,String> price = stock.getStockPrice();
@@ -95,6 +100,7 @@ public class User {
             }
             if (action.equals("p")) {
                 ArrayList<Stock> portfolio = user.getPortfolio();
+                System.out.println(user.getAverageESG());
             }
         }
 
