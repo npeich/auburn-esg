@@ -95,6 +95,7 @@ public class User {
             }
             if (action.equals("p")) {
                 ArrayList<Stock> portfolio = user.getPortfolio();
+                System.out.println(user.getAverageESG());
             }
         }
 
