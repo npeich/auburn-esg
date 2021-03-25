@@ -49,16 +49,18 @@ public class ESGServlet extends HttpServlet {
                 String company = infoReturn.get("company_name");
                 String esg = infoReturn.get("total");
                 String letter = infoReturn.get("total_grade");
-                String price = priceReturn.get("regularMarketPrice");
+
+                String average = user.getAverageESG();
 
                 ArrayList<Stock> port = user.getPortfolio();
 
                 // send result back to page
+                request.setAttribute("user", user);
                 request.setAttribute("resultletter", letter);
                 request.setAttribute("resultcompany", company);
                 request.setAttribute("resultesg", esg);
-                request.setAttribute("resultprice", "$" + price);
                 request.setAttribute("allStocks", port);
+                request.setAttribute("average", average);
 
             getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
         }

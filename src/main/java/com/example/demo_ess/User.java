@@ -40,10 +40,9 @@ public class User {
         System.out.println("Price: " + price.get("regularMarketPrice"));
         System.out.println("Open: " + price.get("regularMarketOpen"));
         System.out.println("Change: " + price.get("Change") + " -> " + price.get("regularMarketChangePercent") + "%");
+        System.out.println("" + getAverageESG());
         return stock;
     }
-
-
 
     public void removeStock(String stockTicker) {
             for (Stock stock : portfolio) {
@@ -62,7 +61,7 @@ public class User {
     public ArrayList<Stock> sortSocial() {
         return null;
     }
-    public double getAverageESG() {
+    public String getAverageESG() {
         double score = 0;
         double stockScore;
 
@@ -71,7 +70,8 @@ public class User {
             score += stockScore;
         }
         score = score / portfolio.size();
-        return score;
+        String stringscore = String.valueOf(score);
+        return stringscore;
     }
 
     public ArrayList<Stock> getRecomendations(double lowBound, double upperBound) {

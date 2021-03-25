@@ -108,12 +108,11 @@ input[type=submit] {
 
 #company-info-box {
     position: relative;
-    padding: 30px;
+    padding: 20px;
     border: 3px solid var(--navy);
     border-radius: 20px;
     text-align: center;
     margin-top: 30px;
-
 }
 
 #curate-portfolio {
@@ -231,6 +230,8 @@ hr {
     width: 70%;
     margin: auto;
     color: var(--teal);
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 #welcome-container {
@@ -248,10 +249,8 @@ hr {
 }
 
 .a {
-
     border: 1px solid black;
 }
-
 
 #b {
     position: relative;
@@ -301,4 +300,44 @@ hr {
 /*---for stock extra info---*/
 #stock-info-container {
     display: none;
+}
+
+.esginfo {
+    color: var(--navy);
+    text-align: left;
+}
+
+.totalgrade {
+    border: solid 1px var(--teal);
+    text-align: center;
+}
+
+#info-total-esg, #info-ticker, #info-social, #info-environment, #info-gov, #grade-e, #grade-s, #grade-g {
+    color: var(--navy);
+}
+
+#info-letter-grade {
+    font-size: 58px;
+    color: var(--navy);
+}
+
+#info-price {
+    font-family: 'Playfair Display', serif;
+    color: var(--green);
+    font-weight: 900;
+    font-size: 24px;
+}
+
+#info-top-stories {
+    font-family: 'Playfair Display', serif;
+    color: var(--navy);
+    font-weight: 900;
+    font-size: 24px;
+}
+
+#info-average {
+    font-family: 'Playfair Display', serif;
+    color: var(--teal);
+    font-weight: 900;
+    font-size: 24px;
 }
