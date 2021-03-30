@@ -62,7 +62,8 @@
 
             <form action="/ESGServlet" method="post">
                 <select name="sort" size="1" id="sortOptions">
-                    <option value="D" selected>Default</option>
+                    <option value="blank" selected>Select Sorting Option</option>
+                    <option value="D">Default</option>
                     <option value="E">Environmental</option>
                     <option value="S">Social</option>
                     <option value="G">Governance</option>
@@ -304,7 +305,8 @@
                 </div>
             </div>
             </div>
-
+            <div id="right-side">
+                <p id="info-average">average</p>
             <div id="stock-info-container">
 
                 <h2 id="info-company-name">Company Name</h2>
@@ -334,14 +336,9 @@
                     </div>
                 </div>
 
-                <!--<hr>
-                <p id="info-top-stories">Top Stories</p>
-                <br>
-                <br>-->
                 <br>
 
 
-                <p id="info-average">average</p>
 
                 <p></p>
                 <p id="blocker"></p>
@@ -352,6 +349,7 @@
                     <button id="remove-stock" onclick="removeStock()" type="submit">Remove Stock</button>
                 </form>
 
+            </div>
             </div>
 
         </div>
@@ -431,7 +429,13 @@
 
 
     function average(clicked) {
-        document.getElementById("info-average").innerHTML = "Average ESG Score = " + clicked;
+        if(clicked.length>6) {
+            document.getElementById("info-average").innerHTML = "Average ESG Score = " + clicked.substring(0,6);
+        }
+        else {
+            document.getElementById("info-average").innerHTML = "Average ESG Score = " + clicked;
+        }
+
     }
 
 
