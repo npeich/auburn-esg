@@ -40,12 +40,12 @@ public class APIManager {
         }
     }
     public String getStockPrice(String ticker) throws IOException{
-        URL urlForGetRequest = new URL("https://stock-price4.p.rapidapi.com/price/" + ticker);
+        URL urlForGetRequest = new URL("https://realstonks.p.rapidapi.com/" + ticker);
         String readLine = null;
         HttpURLConnection connection = (HttpURLConnection)  urlForGetRequest.openConnection();
         connection.setRequestMethod("GET");
-        connection.setRequestProperty("x-rapidapi-key", "fd5f327cfamsh3b67b0cd8185e08p1073aajsn9f4ce2abb80d");
-        connection.setRequestProperty("x-rapidapi-host", "stock-price4.p.rapidapi.com");
+        connection.setRequestProperty("x-rapidapi-key", "eaf18eec7amsh4b99027f00f6a59p11c26djsn333b7abf30af");
+        connection.setRequestProperty("x-rapidapi-host", "realstonks.p.rapidapi.com");
 
 
         int responseCode = connection.getResponseCode();

@@ -16,9 +16,6 @@ public class User {
     }
 
     public ArrayList<Stock> getPortfolio() {
-        System.out.println("Portfolio");
-        for (Stock stock : portfolio)
-            System.out.println(stock.stockTicker.toUpperCase() + "   " + stock.getESGStats().get("total"));
         return portfolio;
     }
 
@@ -34,18 +31,6 @@ public class User {
             }
         }
         portfolio.add(stock);
-        HashMap<String,String> ESG = stock.getESGStats();
-        HashMap<String,String> price = stock.getStockPrice();
-        System.out.println(stockTicker.toUpperCase());
-        System.out.println("Company Name: " + ESG.get("company_name"));
-        System.out.println("Total ESG Score: " + ESG.get("total") + " " + ESG.get("total_grade"));
-        System.out.println("Environmental: " + ESG.get("environment_score") + " " + ESG.get("environment_grade"));
-        System.out.println("Social: " + ESG.get("social_score") + " " + ESG.get("social_grade"));
-        System.out.println("Governance: " + ESG.get("governance_score") + " " + ESG.get("governance_grade"));
-        System.out.println("Price: " + price.get("regularMarketPrice"));
-        System.out.println("Open: " + price.get("regularMarketOpen"));
-        System.out.println("Change: " + price.get("Change") + " -> " + price.get("regularMarketChangePercent") + "%");
-        System.out.println("" + getAverageESG());
         return stock;
     }
 
@@ -82,6 +67,7 @@ public class User {
     public ArrayList<Stock> getRecomendations(double lowBound, double upperBound) {
         return null;
     }
+
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter Username: ");
@@ -97,10 +83,30 @@ public class User {
                 System.out.println("Enter Stock Ticker: ");
                 String ticker = input.next();
                 Stock stock = user.addStock(ticker);
+                HashMap<String,String> ESG = stock.getESGStats();
+                HashMap<String,String> price = stock.getStockPrice();
+                System.out.println(ticker.toUpperCase());
+                System.out.println("Company Name: " + ESG.get("company_name"));
+                System.out.println("Total ESG Score: " + ESG.get("total") + " " + ESG.get("total_grade"));
+                System.out.println("Environmental: " + ESG.get("environment_score") + " " + ESG.get("environment_grade"));
+                System.out.println("Social: " + ESG.get("social_score") + " " + ESG.get("social_grade"));
+                System.out.println("Governance: " + ESG.get("governance_score") + " " + ESG.get("governance_grade"));
+                System.out.println("Price: " + price.get("price"));
+                System.out.println("Volume: " + price.get("total_vol"));
+                System.out.println("Change: " + price.get("change_point") + " -> " + price.get("change_percentage") + "%");
+                System.out.println("" + user.getAverageESG());
             }
             if (action.equals("p")) {
                 ArrayList<Stock> portfolio = user.getPortfolio();
+                for (Stock stock : portfolio) {
+                    System.out.println(stock.stockTicker.toUpperCase() + "   " + stock.getESGStats().get("total"));
+                }
                 System.out.println(user.getAverageESG());
+            }
+            if (action.equals("r")) {
+                System.out.println("Enter Stock Ticker: ");
+                String remTicker = input.next();
+                user.removeStock(remTicker);
             }
         }
 

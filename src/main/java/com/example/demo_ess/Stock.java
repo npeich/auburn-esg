@@ -1,6 +1,7 @@
 package com.example.demo_ess;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Set;
@@ -43,7 +44,11 @@ public class Stock {
             return null;
         }
         if (price == "GET NOT WORKED") {
-            return null;
+            info.put("price", "NA");
+            info.put("total_vol", "NA");
+            info.put("change_percentage", "NA");
+            info.put("change_point", "NA");
+            return info;
         }
         HashMap<String, String> priceMap = stringToMap(price);
         return priceMap;
@@ -94,10 +99,13 @@ public class Stock {
 
 
     public static void main(String[] args) {
-        Stock amazon = new Stock("fb");
+        Stock amazon = new Stock("aapl");
         HashMap<String, String> list = new HashMap<String, String>();
-        //list = amazon.getStockStats();
-        Set<String> marketPrice = list.keySet();
-        System.out.println(list);
+        list = amazon.getStockPrice();
+        String marketPrice = list.get("regularMarketPrice");
+        Set set = list.keySet();
+        Collection values = list.values();
+        System.out.println(set);
+        System.out.println(values);
     }
 }
