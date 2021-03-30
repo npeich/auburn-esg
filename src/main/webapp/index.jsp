@@ -236,12 +236,13 @@
             <div id="curate-portfolio">
                 <h2 id="curate">Request Curated Portfolio</h2>
             </div>
+            <!--
             <div id="curate-modal" class="modal">
                 <div class="modal-content">
                     <span class="close" style="text-align: right">&times;</span>
                     <p>**curating portfolio stuff will go here**</p>
                 </div>
-            </div>
+            </div>-->
 
         <!--end of portfolio column-->
         </div>
@@ -250,6 +251,7 @@
         <!--WELCOME SIDE PANEL-->
         <!---->
         <div class="col-lg-5 gx-5" id="company-info-box">
+            <p class="info-average">Average ESG Score = ${average}</p>
             <div id="welcome-container">
             <h2 id="welcome-message">Welcome to<br>ESGInvest</h2>
 
@@ -306,7 +308,7 @@
             </div>
             </div>
             <div id="right-side">
-                <p id="info-average">average</p>
+                <!--<p class="info-average">Average ESG Score = ${average}</p>-->
             <div id="stock-info-container">
 
                 <h2 id="info-company-name">Company Name</h2>
@@ -367,6 +369,12 @@
         var x = document.getElementById("welcome-container");
         x.style.display = "none";
 
+        var y = document.getElementById("right-side");
+        if (y.style.display === "none") {
+            y.style.display = "block";
+        } else {
+            y.style.display = "block";
+        }
         var y = document.getElementById("stock-info-container");
         if (y.style.display === "none") {
             y.style.display = "block";
@@ -428,7 +436,7 @@
     }
 
 
-    function average(clicked) {
+    /*function average(clicked) {
         if(clicked.length>6) {
             document.getElementById("info-average").innerHTML = "Average ESG Score = " + clicked.substring(0,6);
         }
@@ -437,6 +445,8 @@
         }
 
     }
+
+     */
 
 
 

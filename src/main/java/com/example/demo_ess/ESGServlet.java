@@ -35,9 +35,12 @@ public class ESGServlet extends HttpServlet {
             user.removeStock(toDelete);
             ArrayList<Stock> port = user.getPortfolio();
             request.setAttribute("allStocks", port);
+            String average = user.getAverageESG();
+            if(average.length()>6){
+                average = average.substring(0,6);
+            }
+            request.setAttribute("average", average);
             getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
-            //System.out.println("tried to send get request");
-            //user.getPortfolio();
         }
 
         String sorter = request.getParameter("sort");
@@ -45,14 +48,46 @@ public class ESGServlet extends HttpServlet {
         if(sorter != null) {
             if(sorter.equals("D")) {
                 System.out.println("sorting by default (" + sorter + ")");
-                ArrayList<Stock> port = user.getPortfolio();
-                request.setAttribute("allStocks", port);
+                ArrayList<Stock> dport = user.getPortfolio();
+                request.setAttribute("allStocks", dport);
+                String average = user.getAverageESG();
+                if(average.length()>6){
+                    average = average.substring(0,6);
+                }
+                request.setAttribute("average", average);
                 getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
             }
             if(sorter.equals("E")) {
                 System.out.println("sorting by environmental (" + sorter + ")");
                 ArrayList<Stock> eport = user.sortEnvironmental();
                 request.setAttribute("allStocks", eport);
+                String average = user.getAverageESG();
+                if(average.length()>6){
+                    average = average.substring(0,6);
+                }
+                request.setAttribute("average", average);
+                getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+            }
+            if(sorter.equals("S")) {
+                System.out.println("sorting by social (" + sorter + ")");
+                ArrayList<Stock> sport = user.sortSocial();
+                request.setAttribute("allStocks", sport);
+                String average = user.getAverageESG();
+                if(average.length()>6){
+                    average = average.substring(0,6);
+                }
+                request.setAttribute("average", average);
+                getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+            }
+            if(sorter.equals("G")) {
+                System.out.println("sorting by gov (" + sorter + ")");
+                ArrayList<Stock> gport = user.sortGovernance();
+                request.setAttribute("allStocks", gport);
+                String average = user.getAverageESG();
+                if(average.length()>6){
+                    average = average.substring(0,6);
+                }
+                request.setAttribute("average", average);
                 getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
             }
         }
@@ -81,6 +116,9 @@ public class ESGServlet extends HttpServlet {
                 String letter = infoReturn.get("total_grade");
 
                 String average = user.getAverageESG();
+                if(average.length()>6){
+                    average = average.substring(0,6);
+                }
 
                 ArrayList<Stock> port = user.getPortfolio();
 

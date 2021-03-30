@@ -234,7 +234,7 @@ hr {
 }
 
 #welcome-container {
-    height: 600px;
+    height: 650px;
     border: 3px solid var(--navy);
     border-radius: 20px;
     padding: 20px;
@@ -310,6 +310,10 @@ hr {
     margin-top: 30px;
 }
 
+#right-side {
+    display: none;
+}
+
 .esginfo {
     color: var(--navy);
     text-align: left;
@@ -343,7 +347,7 @@ hr {
     font-size: 24px;
 }
 
-#info-average {
+.info-average {
     font-family: 'Playfair Display', serif;
     color: var(--teal);
     font-weight: 900;
