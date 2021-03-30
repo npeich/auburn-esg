@@ -101,7 +101,7 @@ public class Stock {
     public static void main(String[] args) {
         Stock amazon = new Stock("aapl");
         HashMap<String, String> list = new HashMap<String, String>();
-        list = amazon.getStockPrice();
+        list = amazon.getHeadline();
         String marketPrice = list.get("regularMarketPrice");
         Set set = list.keySet();
         Collection values = list.values();
