@@ -40,6 +40,23 @@ public class ESGServlet extends HttpServlet {
             //user.getPortfolio();
         }
 
+        String sorter = request.getParameter("sort");
+
+        if(sorter != null) {
+            if(sorter.equals("D")) {
+                System.out.println("sorting by default (" + sorter + ")");
+                ArrayList<Stock> port = user.getPortfolio();
+                request.setAttribute("allStocks", port);
+                getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+            }
+            if(sorter.equals("E")) {
+                System.out.println("sorting by environmental (" + sorter + ")");
+                ArrayList<Stock> eport = user.sortEnvironmental();
+                request.setAttribute("allStocks", eport);
+                getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+            }
+        }
+
         // check to make sure they arent blank
         if(stockIn == null || stockIn.isBlank()) {
             error = "ERROR : the box is blank, please enter a stock ticker";

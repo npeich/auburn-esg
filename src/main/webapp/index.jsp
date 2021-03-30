@@ -58,7 +58,20 @@
     <!--PORTFOLIO PANEL-->
     <!---->
     <div class="row flex-column-reverse flex-lg-row">
-        <div class="col-lg-8" id="portfolio">
+        <div class="col-lg-7" id="portfolio">
+
+            <form action="/ESGServlet" method="post">
+                <select name="sort" size="1" id="sortOptions">
+                    <option value="D" selected>Default</option>
+                    <option value="E">Environmental</option>
+                    <option value="S">Social</option>
+                    <option value="G">Governance</option>
+                </select>
+                <button type="submit" name="sortButton" id="sortButton" value="sorter">SORT</button>
+            </form>
+
+            <br>
+
             <!---->
             <!--STOCKS IN PORTFOLIO-->
             <!---->
@@ -235,7 +248,7 @@
         <!---->
         <!--WELCOME SIDE PANEL-->
         <!---->
-        <div class="col-lg-4 gx-5" id="company-info-box">
+        <div class="col-lg-5 gx-5" id="company-info-box">
             <div id="welcome-container">
             <h2 id="welcome-message">Welcome to<br>ESGInvest</h2>
 
@@ -245,6 +258,7 @@
 
             <div id="welcome-sub">
                 <p>Add a stock using the plus button at the top of the page</p>
+                <p>Get more detailed company information, such as individual ESG scores and stock performance, by clicking on a company.</p>
                 <p>Or <strong style="color: var(--navy)">Request a Curated Portfolio</strong> to get a recommended list of stocks that meet your environmental, social, and governance standards.</p>
             </div>
 
@@ -320,16 +334,10 @@
                     </div>
                 </div>
 
-                <!--<p id="info-high">Stock Price High</p>
-                <p id="info-low">Stock Price Low</p>
-                <p id="info-mktcap">Market Cap</p>
-                <p id="info-pe">P/E ratio</p>
-                <p id="info-div">Div Yield</p>-->
-
-                <hr>
+                <!--<hr>
                 <p id="info-top-stories">Top Stories</p>
                 <br>
-                <br>
+                <br>-->
                 <br>
 
 
@@ -423,7 +431,7 @@
 
 
     function average(clicked) {
-        document.getElementById("info-average").innerHTML = "Average ESG Score For Portfolio = " + clicked;
+        document.getElementById("info-average").innerHTML = "Average ESG Score = " + clicked;
     }
 
 
