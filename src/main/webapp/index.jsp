@@ -108,10 +108,10 @@
                             gov('${s.getESGStats().get("governance_score")}');
                             gradeG('${s.getESGStats().get("environment_grade")}');
                             totalGrade('${s.getESGStats().get('total_grade')}');
-                            price('${s.getStockPrice().get('regularMarketPrice')}');
-                            priceChange('${s.getStockPrice().get('regularMarketChangePercent')}');
-                            priceOpen('${s.getStockPrice().get('regularMarketOpen')}');
-                            priceClose('${s.getStockPrice().get('regularMarketDayRange')}');
+                            price('${s.getStockPrice().get('price')}');
+                            priceChange('${s.getStockPrice().get('change_percentage')}');
+                            priceChangePoints('${s.getStockPrice().get('change_point')}');
+                            priceVolume('${s.getStockPrice().get('total_vol')}');
                             average('${average}')"
                        href="#" id="stock${stocknum}">
                     <div class="row gx-2 stock-in-portfolioBB">
@@ -138,10 +138,10 @@
                             gov('${s.getESGStats().get("governance_score")}');
                             gradeG('${s.getESGStats().get("environment_grade")}');
                             totalGrade('${s.getESGStats().get('total_grade')}');
-                            price('${s.getStockPrice().get('regularMarketPrice')}');
-                            priceChange('${s.getStockPrice().get('regularMarketChangePercent')}');
-                            priceOpen('${s.getStockPrice().get('regularMarketOpen')}');
-                            priceClose('${s.getStockPrice().get('regularMarketDayRange')}');
+                            price('${s.getStockPrice().get('price')}');
+                            priceChange('${s.getStockPrice().get('change_percentage')}');
+                            priceChangePoints('${s.getStockPrice().get('change_point')}');
+                            priceVolume('${s.getStockPrice().get('total_vol')}');
                             average('${average}')"
                        href="#" id="stock${stocknum}">
                     <div class="row gx-2 stock-in-portfolioB">
@@ -169,10 +169,10 @@
                             gov('${s.getESGStats().get("governance_score")}');
                             gradeG('${s.getESGStats().get("environment_grade")}');
                             totalGrade('${s.getESGStats().get('total_grade')}');
-                            price('${s.getStockPrice().get('regularMarketPrice')}');
-                            priceChange('${s.getStockPrice().get('regularMarketChangePercent')}');
-                            priceOpen('${s.getStockPrice().get('regularMarketOpen')}');
-                            priceClose('${s.getStockPrice().get('regularMarketDayRange')}');
+                            price('${s.getStockPrice().get('price')}');
+                            priceChange('${s.getStockPrice().get('change_percentage')}');
+                            priceChangePoints('${s.getStockPrice().get('change_point')}');
+                            priceVolume('${s.getStockPrice().get('total_vol')}');
                             average('${average}')"
                        href="#" id="stock${stocknum}">
                     <div class="row gx-2 stock-in-portfolioCCC">
@@ -199,10 +199,10 @@
                             gov('${s.getESGStats().get("governance_score")}');
                             gradeG('${s.getESGStats().get("environment_grade")}');
                             totalGrade('${s.getESGStats().get('total_grade')}');
-                            price('${s.getStockPrice().get('regularMarketPrice')}');
-                            priceChange('${s.getStockPrice().get('regularMarketChangePercent')}');
-                            priceOpen('${s.getStockPrice().get('regularMarketOpen')}');
-                            priceClose('${s.getStockPrice().get('regularMarketDayRange')}');
+                            price('${s.getStockPrice().get('price')}');
+                            priceChange('${s.getStockPrice().get('change_percentage')}');
+                            priceChangePoints('${s.getStockPrice().get('change_point')}');
+                            priceVolume('${s.getStockPrice().get('total_vol')}');
                             average('${average}')"
                        href="#" id="stock${stocknum}">
                     <div class="row gx-2 stock-in-portfolioA">
@@ -315,10 +315,8 @@
                 <p id="info-price-change">Stock Price Change</p>
                 <div>
                     <div col-6>
-                        <p id="info-open">Stock Price Open</p>
-                    </div>
-                    <div col-6>
-                        <p id="info-close">Stock Price Close</p>
+                        <p id="info-volume">Stock Price Volume</p>
+                        <p id="info-price-change-points">Stock Price Change Points</p>
                     </div>
                 </div>
 
@@ -413,11 +411,11 @@
     function priceChange(clicked) {
         document.getElementById("info-price-change").innerHTML = "Percent Change = " + clicked + "%";
     }
-    function priceOpen(clicked) {
-        document.getElementById("info-open").innerHTML = "Open Price = $" + clicked;
+    function priceChangePoints(clicked) {
+        document.getElementById("info-price-change-points").innerHTML = "Points Change = " + clicked;
     }
-    function priceClose(clicked) {
-        document.getElementById("info-close").innerHTML = "Market Day Change = $" + clicked;
+    function priceVolume(clicked) {
+        document.getElementById("info-volume").innerHTML = "Volume = " + clicked;
     }
     function removePrep(clicked) {
         document.getElementById("removeMe").value = clicked;
