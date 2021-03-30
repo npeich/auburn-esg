@@ -1,8 +1,10 @@
 package com.example.demo_ess;
 
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Collections;
 
 public class User {
     public String username;
@@ -43,7 +45,13 @@ public class User {
             }
     }
     public ArrayList<Stock> sortEnvironmental() {
-        return null;
+        ArrayList<Stock> sortedPort = portfolio;
+        Collections.sort(sortedPort, new Comparator<Stock>(){
+            public int compare(Stock s1, Stock s2) {
+                return s2.getESGStats().get("environment_score").compareToIgnoreCase(s1.getESGStats().get("environment_score"));
+            }
+        });
+        return sortedPort;
     }
     public ArrayList<Stock> sortGovernance() {
         return null;
@@ -69,6 +77,7 @@ public class User {
     }
 
     public static void main(String[] args) {
+
         Scanner input = new Scanner(System.in);
         System.out.println("Enter Username: ");
         String username = input.next();
@@ -83,8 +92,8 @@ public class User {
                 System.out.println("Enter Stock Ticker: ");
                 String ticker = input.next();
                 Stock stock = user.addStock(ticker);
-                HashMap<String,String> ESG = stock.getESGStats();
-                HashMap<String,String> price = stock.getStockPrice();
+                HashMap<String, String> ESG = stock.getESGStats();
+                HashMap<String, String> price = stock.getStockPrice();
                 System.out.println(ticker.toUpperCase());
                 System.out.println("Company Name: " + ESG.get("company_name"));
                 System.out.println("Total ESG Score: " + ESG.get("total") + " " + ESG.get("total_grade"));
@@ -108,8 +117,14 @@ public class User {
                 String remTicker = input.next();
                 user.removeStock(remTicker);
             }
+            if (action.equals("s")) {
+                ArrayList<Stock> portfolio = user.sortEnvironmental();
+                for (Stock stock : portfolio) {
+                    System.out.println(stock.stockTicker.toUpperCase() + "   " + stock.getESGStats().get("environment_score"));
+                }
+                System.out.println(user.getAverageESG());
+            }
         }
-
-
     }
 }
+
