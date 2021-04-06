@@ -27,11 +27,11 @@
     <br>
 
     <div style="text-align: center">
-    <p>A = highest score (dark green)</p>
-    <p>BBB = (light green)</p>
-    <p>BB = (yellow)</p>
-    <p>B = (orange)</p>
-    <p>CCC = lowest score (red)</p>
+    <h2 style="color: #447722">A = highest score (dark green)</h2>
+    <h2 style="color: #88bb00">BBB = (light green)</h2>
+    <h2 style="color: #ffc425">BB = (yellow)</h2>
+    <h2 style="color: #f47736">B = (orange)</h2>
+    <h2 style="color: #cc2233">CCC = lowest score (red)</h2>
     </div>
 
     <br>
