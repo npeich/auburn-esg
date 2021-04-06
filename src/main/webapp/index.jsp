@@ -17,15 +17,15 @@
 <!---->
 <!--ESG HEADER-->
 <!---->
-<div class="row">
-    <div class="col-xs">
+<div class="row" style="position: relative">
+    <div class="col-2">
         <p></p>
     </div>
-    <div class="col-xs">
+    <div class="col-8">
         <h1 id="logo">ESGInvest</h1>
     </div>
-    <div class="col-xs">
-        <p></p>
+    <div class="col-2">
+        <a href="info.jsp"><button id="general-info-button">&nbsp;&nbsp;&nbsp;i&nbsp;&nbsp;&nbsp;</button></a>
     </div>
 </div>
 
@@ -265,48 +265,8 @@
                 <p>Or <strong style="color: var(--navy)">Request a Curated Portfolio</strong> to get a recommended list of stocks that meet your environmental, social, and governance standards.</p>
             </div>
 
-            <button id="learn-more">Learn More About ESG</button>
+            </div>
 
-                <!-- The Modal -->
-            <div id="myModal" class="modal">
-                <div class="modal-content">
-                    <span class="close" style="text-align: right">&times;</span>
-                    <h2 style="text-align: center">Here is some information on ESGs,<br>provided by ESG Enterprise</h2>
-                    <br>
-                    <p>ESG Materiality
-                        <br>
-                        The Environmental, Social, and Governance risks and opportunities, posed by long-term science-based
-                        trends like climate change, global warming, energy transitions, consumer spending shifts, and world
-                        economy and demographic shifts. Organizations more than ever face the major challenges as well as risks
-                        and opportunities of adapting their business operations to the ESG trends.
-                        The material risks to an industry exposes the same risks to individual organizations. The same materiality
-                        applies to organizations able to capitalize on profit and opportunities.
-                        ESG Enterprise Rating methodology focuses on multiple levels of materiality from global, country, industryspecific issues.
-                        The research team seeks to answer critical questions of what are the most significant risks facing the
-                        organizations and their industry. Subsequently, it also answers how well organizations manage those risks
-                        and opportunities. Finally, the system ranks the organization's ESG standings against its industry peers for
-                        each country.
-                        <br><br>
-                        Risks
-                        <br>
-                        Material ESG risks are identified by ESG Enterprise Research Committee on a quarterly basis based on
-                        countries and industries. Once issues are selected, the Data Research team sets the weights and impacts
-                        based on AI-driven algorithms that contribute to the overall ESG Rating. The process applies to all three
-                        E, S, G criteria. The final risks are aggregated and reviewed by the data analysts who may curate the data
-                        based on direct communication and questionnaire with the organizations’ investor relations department.
-                        Typical risks are usually related to climate change impacts, emissions mitigation, and adaptation,
-                        environmental management practices and duty of care, working and safety condition, respect for human
-                        rights, anti-bribery and corruption practices, and compliance to relevant laws and regulations.
-                        <br><br>
-                        ESG Enterprise Solution
-                        <br>
-                        TheESG Enterprise SaaS solution provides a web-based ESG data portal and Big Data Analytics, which
-                        allow investors and ESG professionals to search and view all 40,000 organizations' ESG data. The
-                        SaaS platform is easy-to-use, displays dynamic trends and data visualization, and shows the
-                        comparison with its peers and improvement scores.</p>
-                </div>
-            </div>
-            </div>
             <div id="right-side">
                 <!--<p class="info-average">Average ESG Score = ${average}</p>-->
             <div id="stock-info-container">
