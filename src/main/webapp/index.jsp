@@ -236,13 +236,13 @@
             <div id="curate-portfolio">
                 <h2 id="curate">Request Curated Portfolio</h2>
             </div>
-            <!--
+
             <div id="curate-modal" class="modal">
                 <div class="modal-content">
                     <span class="close" style="text-align: right">&times;</span>
-                    <p>**curating portfolio stuff will go here**</p>
+                    <p>COMING SOON</p>
                 </div>
-            </div>-->
+            </div>
 
         <!--end of portfolio column-->
         </div>
@@ -410,30 +410,6 @@
 
 
 
-</script>
-
-<!--pop up for info on ESGs-->
-<script>
-    // Get the modal
-    var modal = document.getElementById("myModal");
-    // Get the button that opens the modal
-    var btn = document.getElementById("learn-more");
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-    // When the user clicks the button, open the modal
-    btn.onclick = function() {
-        modal.style.display = "block";
-    }
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
 </script>
 
 <!--pop up for curating portfolio-->
