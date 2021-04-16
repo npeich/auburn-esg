@@ -302,6 +302,7 @@ hr {
 
 /*---for stock extra info---*/
 #stock-info-container {
+    position: relative;
     display: none;
     border: 3px solid var(--navy);
     border-radius: 20px;

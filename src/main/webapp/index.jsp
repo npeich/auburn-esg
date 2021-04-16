@@ -395,21 +395,6 @@
         document.getElementById("removeMe").value = clicked;
     }
 
-
-    /*function average(clicked) {
-        if(clicked.length>6) {
-            document.getElementById("info-average").innerHTML = "Average ESG Score = " + clicked.substring(0,6);
-        }
-        else {
-            document.getElementById("info-average").innerHTML = "Average ESG Score = " + clicked;
-        }
-
-    }
-
-     */
-
-
-
 </script>
 
 <!--pop up for curating portfolio-->

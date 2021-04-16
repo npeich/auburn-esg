@@ -119,6 +119,23 @@ public class ESGServlet extends HttpServlet {
                 if(average.length()>6){
                     average = average.substring(0,6);
                 }
+                if(Double.parseDouble(average)<600) {
+                    average += " (CCC)";
+                }
+                else if(Double.parseDouble(average)>=600 && Double.parseDouble(average)<750) {
+                    average += " (B)";
+                }
+                else if(Double.parseDouble(average)>=750 && Double.parseDouble(average)<900) {
+                    average += " (BB)";
+                }
+                else if(Double.parseDouble(average)>=900 && Double.parseDouble(average)<1300) {
+                    average += " (BBB)";
+                }
+                else if(Double.parseDouble(average)>=1300) {
+                    average += " (A)";
+                }
+
+                System.out.println(average);
 
                 ArrayList<Stock> port = user.getPortfolio();
 
