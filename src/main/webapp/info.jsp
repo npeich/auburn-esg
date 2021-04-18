@@ -27,11 +27,11 @@
     <br>
 
     <div style="text-align: center">
-    <h2 style="color: #447722">A = highest score (dark green)</h2>
-    <h2 style="color: #88bb00">BBB = (light green)</h2>
-    <h2 style="color: #ffc425">BB = (yellow)</h2>
-    <h2 style="color: #f47736">B = (orange)</h2>
-    <h2 style="color: #cc2233">CCC = lowest score (red)</h2>
+    <h2 style="color: #447722">A = overall score higher than 1300  (dark green)</h2>
+    <h2 style="color: #88bb00">BBB = overall score between 900 - 1300 (light green)</h2>
+    <h2 style="color: #ffc425">BB = overall score between 750 - 900 (yellow)</h2>
+    <h2 style="color: #f47736">B = overall score between 600 - 750 (orange)</h2>
+    <h2 style="color: #cc2233">CCC = overall score less than 600 (red)</h2>
     </div>
 
     <br>
