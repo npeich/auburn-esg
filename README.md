@@ -1,27 +1,13 @@
-Cycle 2 Version Description
+ESGInvest
 
+In today’s globally aware environment, investors are more than ever looking to invest in companies that will not only provide great returns, but also positively impact society.  Sustainability is at the core of a successful company, and can be measured using three indicators, Environmental impact, Social relationships, and Governance practices, known as ESG.  ESG is an addition to the typical business indicators like market growth, profits, and investor dividends.  Private companies calculate a company’s ESG score by analyzing public company data about risks such as energy use, pollution, charity, worker conditions, transparent accounting, board members, and politics.  Overall, ESG measures how the company manages these risks.
 
-Version Number
+ESG scores, which might differ among various analyst firms, typically rate companies on a letter grading scale.  At a glance, users can determine if companies that they are interested in are managing ESG risks by looking at the company’s grade, A being the best.  But searching the internet for ESG scores for every company isn’t as easy as it seems.  We aim to provide a solution to thoughtful investors by creating a web application that allows users to keep tabs on their favorite companies and be able to view their ESG scores and stock information.  This will help investors make more sustainable stock picks.  Typically, companies with higher ESG scores are more forward thinking, proactive, and aware of their environment, and will be a better long term investment than a company with a low ESG score.
 
+Our web application, ESGInvest, will be a simple to use, modern, and informative web app that users can trust to provide up to date ESG and stock information.  This tool will be helpful to investors looking to add more stocks to their portfolio and compare companies they invest in to others in the industry.  Users will be able to create their own virtual portfolio and look, at a quick glance, how each company compares to others depending on their ESG score.  Better scoring companies will be shown in green and poorer performing companies will be shown in orange.  Our tool will empower investors to make smart decisions when building their portfolio and investing for the future.
 
-2.0
+View the User Manual : https://docs.google.com/document/d/14H6ZR-26ameO58V52z3Egpk7aWMxkw9wTn3MSVfngb8/edit?usp=sharing
 
+View the Developer Manual : https://docs.google.com/document/d/1oCLRFPnPx_89CVxR_hIPLqbF2189d6WV9KTAWaVlsMo/edit?usp=sharing
 
-
-Introduction
-
-The ESG Investment Tool is a web application that allows investors to see how companies they invest in score in terms of their environmental, social, and governance policies (ESG). The scores display the societal and world impacts of the company and allow the investor to make educated decisions on the companies they invest in.
-
-Scope
-
-The ESG Investment Tool allows investors to be informed on companies that they are investing in. Some investors may prefer companies that are environmentally friendly or may prefer companies that treat their workers properly. This tool allows them to see how these companies score and therefore allows them to make investments that they agree with. In this version, the team was able to make a successful connection to the database as well as have the front and back end communicate with each other.
-Version Description
-
-New Features
-
-For this cycle, we were able to have the ends of the program communicate with each other. This allows for the front end to access the API’s on the backend and display information on the web application. The front end now displays information regarding the companies ESG scores and organizes the companies saved into a portfolio. 
-	
-The back end also received some updates. We were able to create a database manager class that should be able to save stocks from the front end and store them in the database.
-  
-Known Problems
-There are currently a couple issues regarding both ends of the project. One of the issues with the front end is it will sometimes store the same stock multiple times in the portfolio. On the backend we have run into some issues regarding properly storing information within the database as well as occasionally not being able to make a connection.
+View Project Presentation : https://docs.google.com/presentation/d/1aPzoK7nlZCANZ-tMgjpoSeX6eoUuj5jeo4-PShskH5A/edit?usp=sharing
